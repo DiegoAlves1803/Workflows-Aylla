@@ -9,10 +9,10 @@ const Sidebar = ({ conversations }) => {
 
   return (
     <div 
-      className="w-80 rounded-3xl p-4 flex flex-col gap-6 backdrop-blur-sm transition-all duration-300 border"
+      className="w-80 rounded-3xl p-4 flex flex-col gap-6 backdrop-blur-sm border"
       style={{
         backgroundColor: currentTheme.sidebarBg,
-        borderColor: currentTheme.border,
+        borderColor: 'var(--Border-primary)',
         boxShadow: currentTheme.shadow
       }}
     >
@@ -24,13 +24,10 @@ const Sidebar = ({ conversations }) => {
         <div 
           className="flex items-center gap-2 py-2 px-3 rounded-xl cursor-pointer transition-all duration-200 group hover:scale-[1.02]"
           style={{ 
-            backgroundColor: 'transparent',
-            ':hover': {
-              backgroundColor: isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(59, 130, 246, 0.05)'
-            }
+            backgroundColor: 'transparent'
           }}
           onMouseEnter={(e) => {
-            e.target.style.backgroundColor = isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(59, 130, 246, 0.05)';
+            e.target.style.backgroundColor = isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)';
           }}
           onMouseLeave={(e) => {
             e.target.style.backgroundColor = 'transparent';
@@ -39,19 +36,16 @@ const Sidebar = ({ conversations }) => {
           <MessageSquare 
             size={20} 
             className="transition-colors group-hover:scale-110 duration-200"
-            style={{ color: currentTheme.primary }}
+            style={{ color: 'var(--Brand-primary)' }}
           />
-          <span 
-            className="text-base font-medium font-['Lato'] transition-colors"
-            style={{ color: currentTheme.primary }}
-          >
+          <span className="aylla-nova-conversa transition-colors">
             Nova Conversa
           </span>
         </div>
         <div 
           className="flex items-center gap-2 py-2 px-3 rounded-xl cursor-pointer transition-all duration-200 group hover:scale-[1.02]"
           onMouseEnter={(e) => {
-            e.target.style.backgroundColor = isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(59, 130, 246, 0.05)';
+            e.target.style.backgroundColor = isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)';
           }}
           onMouseLeave={(e) => {
             e.target.style.backgroundColor = 'transparent';
@@ -60,12 +54,9 @@ const Sidebar = ({ conversations }) => {
           <Settings 
             size={20} 
             className="transition-colors group-hover:scale-110 duration-200"
-            style={{ color: currentTheme.primary }}
+            style={{ color: 'var(--Brand-primary)' }}
           />
-          <span 
-            className="text-base font-medium font-['Lato'] transition-colors"
-            style={{ color: currentTheme.primary }}
-          >
+          <span className="aylla-configuracoes transition-colors">
             Configurações
           </span>
         </div>
@@ -75,23 +66,20 @@ const Sidebar = ({ conversations }) => {
       <div 
         className="h-px transition-all duration-300"
         style={{
-          background: `linear-gradient(90deg, transparent, ${currentTheme.border}, transparent)`
+          background: `linear-gradient(90deg, transparent, var(--Border-primary), transparent)`
         }}
       ></div>
       
       {/* Conversations Section */}
       <div className="flex flex-col gap-4 flex-1">
         <div className="flex items-center justify-between">
-          <span 
-            className="text-lg font-medium font-['Lato']"
-            style={{ color: currentTheme.text.tertiary }}
-          >
+          <span className="aylla-nossas-conversas">
             Nossas conversas
           </span>
           <MoreHorizontal 
             size={20} 
             className="cursor-pointer hover:scale-110 transition-all duration-200"
-            style={{ color: currentTheme.primary }}
+            style={{ color: 'var(--Brand-primary)' }}
           />
         </div>
         
@@ -102,16 +90,13 @@ const Sidebar = ({ conversations }) => {
               key={index} 
               className="cursor-pointer p-3 rounded-xl transition-all duration-200 group hover:scale-[1.02]"
               onMouseEnter={(e) => {
-                e.target.style.backgroundColor = isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(59, 130, 246, 0.05)';
+                e.target.style.backgroundColor = isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)';
               }}
               onMouseLeave={(e) => {
                 e.target.style.backgroundColor = 'transparent';
               }}
             >
-              <div 
-                className="text-base font-medium font-['Lato'] transition-colors"
-                style={{ color: currentTheme.text.secondary }}
-              >
+              <div className="aylla-conversa-item transition-colors">
                 {conversation.title}
               </div>
             </div>

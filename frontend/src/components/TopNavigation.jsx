@@ -20,7 +20,7 @@ const TopNavigation = ({ activeTab, setActiveTab }) => {
         className="rounded-full px-4 py-2 flex items-center justify-between max-w-fit backdrop-blur-sm transition-all duration-300 border"
         style={{
           backgroundColor: currentTheme.cardBg,
-          borderColor: currentTheme.border,
+          borderColor: 'var(--Border-primary)',
           boxShadow: currentTheme.shadow
         }}
       >
@@ -40,13 +40,12 @@ const TopNavigation = ({ activeTab, setActiveTab }) => {
                     : "hover:opacity-75"
                 }`}
                 style={{
-                  backgroundColor: isActive ? (isDark ? 'rgba(7, 201, 253, 0.2)' : 'rgba(59, 130, 246, 0.1)') : 'transparent',
-                  borderColor: isActive ? currentTheme.primary : 'transparent',
-                  color: isActive ? currentTheme.primary : currentTheme.text.tertiary
+                  backgroundColor: isActive ? (isDark ? 'rgba(7, 201, 253, 0.2)' : 'rgba(8, 33, 93, 0.1)') : 'transparent',
+                  borderColor: isActive ? 'var(--Brand-primary)' : 'transparent'
                 }}
               >
-                <Icon size={16} />
-                <span className={`text-sm font-['Lato'] ${isActive ? "font-bold" : "font-medium"}`}>
+                <Icon size={16} style={{ color: 'var(--Brand-primary)' }} />
+                <span className={isActive && tab.name === "Chat" ? "aylla-tab-chat" : "aylla-tab-normal"}>
                   {tab.name}
                 </span>
               </div>
@@ -62,9 +61,9 @@ const TopNavigation = ({ activeTab, setActiveTab }) => {
               onClick={toggleTheme}
               className="w-8 h-8 rounded-full border flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-105"
               style={{
-                backgroundColor: isDark ? 'rgba(7, 201, 253, 0.2)' : 'rgba(59, 130, 246, 0.1)',
-                borderColor: currentTheme.border,
-                color: currentTheme.primary
+                backgroundColor: isDark ? 'rgba(7, 201, 253, 0.2)' : 'rgba(8, 33, 93, 0.1)',
+                borderColor: 'var(--Border-primary)',
+                color: 'var(--Brand-primary)'
               }}
             >
               {isDark ? <Sun size={16} /> : <Moon size={16} />}
@@ -73,9 +72,9 @@ const TopNavigation = ({ activeTab, setActiveTab }) => {
             <div 
               className="w-8 h-8 rounded-full border flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-105"
               style={{
-                backgroundColor: isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(59, 130, 246, 0.05)',
-                borderColor: currentTheme.border,
-                color: currentTheme.primary
+                backgroundColor: isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)',
+                borderColor: 'var(--Border-primary)',
+                color: 'var(--Brand-primary)'
               }}
             >
               <Settings size={16} />
@@ -83,9 +82,9 @@ const TopNavigation = ({ activeTab, setActiveTab }) => {
             <div 
               className="w-8 h-8 rounded-full border flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-105"
               style={{
-                backgroundColor: isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(59, 130, 246, 0.05)',
-                borderColor: currentTheme.border,
-                color: currentTheme.primary
+                backgroundColor: isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)',
+                borderColor: 'var(--Border-primary)',
+                color: 'var(--Brand-primary)'
               }}
             >
               <MoreHorizontal size={16} />
@@ -96,10 +95,10 @@ const TopNavigation = ({ activeTab, setActiveTab }) => {
           <div 
             className="w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-all duration-300"
             style={{
-              background: `linear-gradient(135deg, ${currentTheme.primary} 0%, ${currentTheme.secondary} 100%)`
+              background: `linear-gradient(135deg, var(--Brand-primary) 0%, var(--Brand-secondary) 100%)`
             }}
           >
-            <span className="text-white text-base font-semibold font-['Inter']">U</span>
+            <span className="aylla-avatar">U</span>
           </div>
         </div>
       </div>

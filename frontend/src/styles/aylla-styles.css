@@ -1,0 +1,155 @@
+/* Aylla Custom Styles - Design System */
+
+:root {
+  /* Brand Colors */
+  --Brand-primary: #08215D;
+  --Brand-secondary: #07C9FD;
+  
+  /* Text Colors */
+  --Text-primary: #0F172A;
+  --Text-secondary: #334155;
+  --Text-tertiary: #64748B;
+  
+  /* Neutral Colors */
+  --Neutrals-100: #F1F5F9;
+  --Neutrals-200: #CBD5E1;
+  
+  /* Background Colors */
+  --Background-subtle: #F6F9FF;
+  --Background-card-100: #FFFFFF;
+  
+  /* Border */
+  --Border-primary: #CBD5E1;
+}
+
+/* Dark theme colors */
+.dark {
+  --Brand-primary: #07C9FD;
+  --Brand-secondary: #08215D;
+  --Text-primary: #F8FAFC;
+  --Text-secondary: #E2E8F0;
+  --Text-tertiary: #94A3B8;
+  --Neutrals-100: #1E293B;
+  --Neutrals-200: #374151;
+  --Background-subtle: #0F172A;
+  --Background-card-100: rgba(30, 41, 59, 0.9);
+  --Border-primary: #374151;
+}
+
+/* Typography Styles */
+.aylla-nova-conversa {
+  color: var(--Brand-primary);
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.aylla-configuracoes {
+  color: var(--Brand-primary);
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.aylla-nossas-conversas {
+  color: var(--Text-tertiary);
+  font-size: 18px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.aylla-conversa-item {
+  color: var(--Text-secondary);
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.aylla-tab-chat {
+  color: var(--Brand-primary);
+  font-size: 14px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  line-height: 19.60px;
+  word-wrap: break-word;
+}
+
+.aylla-tab-normal {
+  color: var(--Brand-primary);
+  font-size: 14px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.aylla-avatar {
+  color: var(--Neutrals-100);
+  font-size: 16px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  line-height: 24px;
+  word-wrap: break-word;
+}
+
+.aylla-greeting {
+  color: var(--Text-primary);
+  font-size: 40px;
+  font-family: 'Lexend', sans-serif;
+  font-weight: 500;
+  line-height: 48px;
+  word-wrap: break-word;
+}
+
+.aylla-instruction {
+  color: var(--Text-primary);
+  font-size: 18px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 25.20px;
+  word-wrap: break-word;
+}
+
+.aylla-prompt-suggestion {
+  color: var(--Text-secondary);
+  font-size: 14px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 19.60px;
+  word-wrap: break-word;
+}
+
+.aylla-input-placeholder {
+  color: var(--Text-tertiary);
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 22.40px;
+  word-wrap: break-word;
+}
+
+/* Transitions for theme switching */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--Border-primary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--Text-tertiary);
+}
