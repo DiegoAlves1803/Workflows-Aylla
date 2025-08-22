@@ -84,7 +84,7 @@ const ChatMessages = ({ messages, isLoading }) => {
                 }}
               >
                 <span className="text-white text-xs font-semibold font-['Inter']">
-                  {user?.name?.split(' ').map(n => n[0]).join('').substring(0, 2) || 'U'}
+                  SO
                 </span>
               </div>
             )}
