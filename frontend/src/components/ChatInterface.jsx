@@ -20,7 +20,7 @@ const ChatInterface = () => {
           <TopNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
           
           {/* Main Chat Area */}
-          <div className="flex-1 pt-16">
+          <div className="flex-1">
             <MainChatArea />
           </div>
         </div>
