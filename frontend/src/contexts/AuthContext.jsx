@@ -54,11 +54,11 @@ export const AuthProvider = ({ children }) => {
 
   const updateUserGreeting = () => {
     const greetings = [
-      `Olá, ${user?.name || 'Secretário'}! Como posso ajudá-lo hoje?`,
-      `Bem-vindo de volta, ${user?.name || 'Secretário'}! Em que posso auxiliá-lo?`,
-      `Oi, ${user?.name || 'Secretário'}! Pronto para continuar nossa conversa?`,
-      `Olá! É um prazer falar com você novamente, ${user?.name || 'Secretário'}!`,
-      `Bem-vindo, ${user?.name || 'Secretário'}! Como está sua jornada educacional hoje?`
+      `Olá, ${user?.name || 'Sr. Oriovaldo'}! Como posso ajudá-lo hoje?`,
+      `Bem-vindo de volta, ${user?.name || 'Sr. Oriovaldo'}! Em que posso auxiliá-lo?`,
+      `Oi, ${user?.name || 'Sr. Oriovaldo'}! Pronto para continuar nossa conversa?`,
+      `Olá! É um prazer falar com você novamente, ${user?.name || 'Sr. Oriovaldo'}!`,
+      `Bem-vindo, ${user?.name || 'Sr. Oriovaldo'}! Como está sua jornada educacional hoje?`
     ];
     
     return greetings[Math.floor(Math.random() * greetings.length)];
