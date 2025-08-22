@@ -113,7 +113,7 @@ const MainChatArea = () => {
             <img 
               src="/images/aylla-logo.jpg" 
               alt="Aylla" 
-              className="w-10 h-10 object-contain"
+              className="w-12 h-12 object-contain"
             />
             <div>
               <h2 className="text-xl font-['Lexend'] font-medium" style={{ color: currentTheme.text.primary }}>
