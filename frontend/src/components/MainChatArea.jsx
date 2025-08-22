@@ -25,7 +25,7 @@ const MainChatArea = () => {
         <MainLogo />
         <div className="flex flex-col justify-center gap-2">
           <h1 className="text-[#0F172A] text-4xl font-['Lexend'] font-medium leading-[48px]">
-            Olá, Charles Xavier!
+            Olá! Como posso ajudá-lo hoje?
           </h1>
         </div>
       </div>
