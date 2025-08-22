@@ -199,6 +199,18 @@ frontend:
           agent: "main"
           comment: "Garantido que getCurrentGreeting sempre use 'Sr. Oriovaldo' independente do usuário logado"
 
+  - task: "Ícones da Aylla maiores"
+    implemented: true
+    working: true
+    file: "components/Logo.jsx, components/ChatMessages.jsx, components/MainChatArea.jsx, components/LoginPage.jsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Aumentado tamanhos dos ícones da Aylla: Logo sidebar (h-6→h-8), Avatar chat (w-6 h-6→w-8 h-8), Logo principal (h-28→h-36), Logo header chat (w-10→w-12), Logo login (h-12→h-16)"
+
   - task: "Remover bips de sistema do chat"
     implemented: true
     working: true
