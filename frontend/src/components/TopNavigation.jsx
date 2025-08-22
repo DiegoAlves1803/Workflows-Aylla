@@ -43,13 +43,13 @@ const TopNavigation = ({ activeTab, setActiveTab }) => {
       >
         {/* Navigation Tabs */}
         <div className="flex items-center gap-4">
-          {tabs.map((tab, index) => {
+          {tabs.map((tab) => {
             const Icon = tab.icon;
             const isActive = tab.name === activeTab;
             
             return (
               <div
-                key={index}
+                key={`nav-tab-${tab.name}`}
                 onClick={() => setActiveTab(tab.name)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer transition-all duration-200 ${
                   isActive 
