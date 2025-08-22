@@ -36,10 +36,10 @@ export const AuthProvider = ({ children }) => {
     // Login opcional - aceita qualquer credencial ou entrada vazia
     const userData = {
       id: Date.now().toString(),
-      name: credentials.login || 'Secretário de Educação',
+      name: credentials.login || 'Sr. Oriovaldo',
       role: 'Secretário de Educação',
-      municipality: 'Município',
-      login: credentials.login || 'usuario',
+      municipality: 'Município de Oriovaldo',
+      login: credentials.login || 'oriovaldo',
       loginTime: new Date().toISOString(),
       rememberMe: rememberMe
     };
