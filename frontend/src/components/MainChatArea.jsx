@@ -3,27 +3,35 @@ import { Paperclip, Send, Mic } from "lucide-react";
 import { mockData } from "../data/mockData";
 import { useTheme } from "../contexts/ThemeContext";
 import { useAuth } from "../contexts/AuthContext";
+import ChatMessages from "./ChatMessages";
+import { EducationKnowledge } from "../services/educationKnowledge";
 
 const MainChatArea = () => {
   const [message, setMessage] = useState("");
   const [greeting, setGreeting] = useState("");
-  const [nextUpdateIn, setNextUpdateIn] = useState(120); // 2 minutos em segundos
+  const [nextUpdateIn, setNextUpdateIn] = useState(120);
+  const [messages, setMessages] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [showChat, setShowChat] = useState(false);
+  
   const { isDark, colors } = useTheme();
   const { getCurrentGreeting, user } = useAuth();
   const currentTheme = isDark ? colors.dark : colors.light;
+  
+  const educationKB = new EducationKnowledge();
 
   // Atualiza a saudação quando o componente carrega ou o usuário muda
   useEffect(() => {
     setGreeting(getCurrentGreeting());
-    setNextUpdateIn(120); // Reset do contador
+    setNextUpdateIn(120);
   }, [user, getCurrentGreeting]);
 
   // Atualiza a saudação a cada 2 minutos para variar
   useEffect(() => {
     const interval = setInterval(() => {
       setGreeting(getCurrentGreeting());
-      setNextUpdateIn(120); // Reset do contador
-    }, 120000); // 2 minutos = 120000ms
+      setNextUpdateIn(120);
+    }, 120000);
 
     return () => clearInterval(interval);
   }, [getCurrentGreeting]);
@@ -37,21 +45,41 @@ const MainChatArea = () => {
     return () => clearInterval(countdown);
   }, []);
 
-  const handleSend = () => {
+  const handleManualUpdate = () => {
+    setGreeting(getCurrentGreeting());
+    setNextUpdateIn(120);
+  };
+
+  const handleSend = async () => {
     if (message.trim()) {
-      console.log("Sending message:", message);
-      // Aqui será integrado com AWS para simulação de conversa
+      const userMessage = {
+        type: 'user',
+        content: message.trim(),
+        timestamp: new Date().toISOString()
+      };
+
+      setMessages(prev => [...prev, userMessage]);
       setMessage("");
+      setIsLoading(true);
+      setShowChat(true);
+
+      // Simula delay de resposta realista
+      setTimeout(() => {
+        const response = educationKB.findResponse(userMessage.content);
+        const assistantMessage = {
+          type: 'assistant',
+          content: response,
+          timestamp: new Date().toISOString()
+        };
+
+        setMessages(prev => [...prev, assistantMessage]);
+        setIsLoading(false);
+      }, 1000 + Math.random() * 2000);
     }
   };
 
   const handlePromptClick = (prompt) => {
     setMessage(prompt);
-  };
-
-  const handleManualUpdate = () => {
-    setGreeting(getCurrentGreeting());
-    setNextUpdateIn(120); // Reset do contador
   };
 
   const getPersonalizedPrompts = () => {
@@ -66,11 +94,113 @@ const MainChatArea = () => {
     return basePrompts;
   };
 
+  const startNewConversation = () => {
+    setMessages([]);
+    setShowChat(false);
+  };
+
+  if (showChat) {
+    return (
+      <div className="max-w-[1000px] mx-auto flex flex-col h-full pt-32 px-4 relative">
+        {/* Chat Header */}
+        <div className="flex items-center justify-between mb-4 pb-4 border-b" style={{ borderColor: 'var(--Border-primary)' }}>
+          <div className="flex items-center gap-3">
+            <img 
+              src="/images/aylla-logo.jpg" 
+              alt="Aylla" 
+              className="w-10 h-10 object-contain"
+            />
+            <div>
+              <h2 className="text-xl font-['Lexend'] font-medium" style={{ color: currentTheme.text.primary }}>
+                Conversa com Aylla
+              </h2>
+              <p className="text-sm" style={{ color: currentTheme.text.tertiary }}>
+                Assistente Educacional Inteligente
+              </p>
+            </div>
+          </div>
+          
+          <button
+            onClick={startNewConversation}
+            className="px-4 py-2 rounded-lg border text-sm font-['Lato'] transition-all duration-200 hover:scale-105"
+            style={{
+              borderColor: 'var(--Brand-primary)',
+              color: 'var(--Brand-primary)',
+              backgroundColor: isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)'
+            }}
+          >
+            Nova Conversa
+          </button>
+        </div>
+
+        {/* Messages Area */}
+        <ChatMessages messages={messages} isLoading={isLoading} />
+
+        {/* Input Area */}
+        <div 
+          className="mt-4 p-4 backdrop-blur-sm border rounded-3xl flex items-center gap-3 transition-all duration-300"
+          style={{
+            backgroundColor: currentTheme.cardBg,
+            borderColor: 'var(--Border-primary)',
+            boxShadow: currentTheme.shadow
+          }}
+        >
+          <div 
+            className="w-8 h-8 border rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-110"
+            style={{
+              backgroundColor: isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)',
+              borderColor: 'var(--Border-primary)'
+            }}
+          >
+            <Mic size={16} style={{ color: 'var(--Brand-primary)' }} />
+          </div>
+          
+          <input
+            type="text"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+            placeholder={`Digite sua pergunta educacional...`}
+            className="flex-1 bg-transparent outline-none transition-colors duration-300 font-['Lato']"
+            style={{ 
+              color: currentTheme.text.primary
+            }}
+          />
+          
+          <div className="flex items-center gap-2">
+            <div 
+              className="w-8 h-8 border rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-110"
+              style={{
+                backgroundColor: isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)',
+                borderColor: 'var(--Border-primary)'
+              }}
+            >
+              <Paperclip size={16} style={{ color: 'var(--Brand-primary)' }} />
+            </div>
+            
+            <button
+              onClick={handleSend}
+              disabled={!message.trim() || isLoading}
+              className="w-10 h-10 rounded-full border flex items-center justify-center cursor-pointer transition-all duration-200 hover:shadow-lg hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+              style={{
+                background: message.trim() && !isLoading 
+                  ? `linear-gradient(135deg, var(--Brand-primary) 0%, var(--Brand-secondary) 100%)`
+                  : 'var(--Border-primary)',
+                borderColor: 'var(--Brand-primary)'
+              }}
+            >
+              <Send size={20} className="text-white" />
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="max-w-[800px] mx-auto flex flex-col gap-10 pt-32 px-4 relative">
       {/* Marca d'água Aylla - Padrão Elegante */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        {/* Marca d'água central principal */}
         <div className="absolute inset-0 flex items-center justify-center opacity-4">
           <div className="transform rotate-12">
             <img 
@@ -81,7 +211,6 @@ const MainChatArea = () => {
           </div>
         </div>
         
-        {/* Padrão de logos menores espalhadas */}
         <div className="absolute top-10 left-10 opacity-2">
           <img src="/images/aylla-logo.jpg" alt="Aylla" className="w-20 h-20 object-contain transform rotate-45" />
         </div>
