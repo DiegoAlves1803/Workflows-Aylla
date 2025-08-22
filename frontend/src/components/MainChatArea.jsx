@@ -191,7 +191,10 @@ const MainChatArea = () => {
             </div>
             
             <button
-              onClick={handleSend}
+              onClick={(e) => {
+                e.preventDefault();
+                handleSend();
+              }}
               disabled={!message.trim() || isLoading}
               className="w-10 h-10 rounded-full border flex items-center justify-center cursor-pointer transition-all duration-200 hover:shadow-lg hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
               style={{
