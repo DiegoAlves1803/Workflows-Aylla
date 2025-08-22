@@ -96,7 +96,7 @@ const ChatMessages = ({ messages, isLoading }) => {
       {isLoading && (
         <div className="flex justify-start">
           <div className="max-w-[80%] flex gap-3 items-start">
-            <div className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center mt-1 bg-white border-2"
+            <div className="w-10 h-10 rounded-full flex-shrink-0 flex items-center justify-center mt-1 bg-white border-2"
               style={{ 
                 borderColor: 'var(--Brand-primary)'
               }}
@@ -104,7 +104,7 @@ const ChatMessages = ({ messages, isLoading }) => {
               <img 
                 src="/images/aylla-logo.jpg" 
                 alt="Aylla" 
-                className="w-6 h-6 object-contain rounded-sm"
+                className="w-8 h-8 object-contain rounded-sm"
               />
             </div>
             <div
