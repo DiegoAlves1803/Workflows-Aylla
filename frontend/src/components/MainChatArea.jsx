@@ -40,7 +40,7 @@ const MainChatArea = () => {
 
   const getPersonalizedPrompts = () => {
     const basePrompts = mockData.promptSuggestions;
-    if (user && user.name !== 'Secretário de Educação') {
+    if (user && user.name !== 'Sr. Oriovaldo') {
       return [
         ...basePrompts,
         `Como está o desempenho da ${user.municipality || 'nossa região'}?`,
