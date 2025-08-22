@@ -58,10 +58,10 @@ export const mockData = {
   ],
   
   promptSuggestions: [
-    "Como os gastos da minha escola estão?",
-    "Agende uma reunião com a Jean Gray para alinhar as propostas de 2025",
-    "Gere um relatório de transparência dos recursos",
-    "Qual o status da prestação de contas do trimestre?"
+    "Solicito relatório sobre a situação financeira escolar",
+    "Agendar reunião oficial com a Sra. Jean Gray - propostas 2025",
+    "Requeiro relatório de transparência dos recursos públicos",
+    "Consultar status da prestação de contas trimestral"
   ],
   
   user: {
