@@ -17,15 +17,15 @@ const ChatMessages = ({ messages, isLoading }) => {
           <div className="max-w-[80%] flex gap-3 items-start">
             {/* Avatar */}
             {message.type === 'assistant' && (
-              <div className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center mt-1"
+              <div className="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center mt-1 bg-white border-2"
                 style={{ 
-                  background: `linear-gradient(135deg, var(--Brand-primary) 0%, var(--Brand-secondary) 100%)`
+                  borderColor: 'var(--Brand-primary)'
                 }}
               >
                 <img 
                   src="/images/aylla-logo.jpg" 
                   alt="Aylla" 
-                  className="w-5 h-5 object-contain rounded-full filter brightness-0 invert"
+                  className="w-6 h-6 object-contain rounded-sm"
                 />
               </div>
             )}
