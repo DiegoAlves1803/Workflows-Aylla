@@ -40,20 +40,7 @@ const ChatInterface = () => {
         background: currentTheme.background
       }}
     >
-      {/* Credits Display */}
-      <div className="absolute top-4 left-4 z-50">
-        <div 
-          className="px-4 py-2 rounded-full text-sm font-['Lato'] font-medium border backdrop-blur-sm transition-all duration-300"
-          style={{
-            backgroundColor: currentTheme.cardBg,
-            borderColor: currentTheme.border,
-            color: currentTheme.text.secondary,
-            boxShadow: currentTheme.shadow
-          }}
-        >
-          💰 Créditos: 4,92
-        </div>
-      </div>
+
 
       <div className="flex gap-4 h-[calc(100vh-2rem)]">
         {/* Sidebar */}
