@@ -165,6 +165,8 @@ const MainChatArea = () => {
             style={{ 
               color: currentTheme.text.primary
             }}
+            autoComplete="off"
+            spellCheck="false"
           />
           
           <div className="flex items-center gap-2">
