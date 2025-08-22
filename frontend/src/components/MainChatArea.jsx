@@ -1,13 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Paperclip, Send, Mic } from "lucide-react";
 import MainLogo from "./MainLogo";
 import { mockData } from "../data/mockData";
 import { useTheme } from "../contexts/ThemeContext";
+import { useAuth } from "../contexts/AuthContext";
 
 const MainChatArea = () => {
   const [message, setMessage] = useState("");
+  const [greeting, setGreeting] = useState("");
   const { isDark, colors } = useTheme();
+  const { getCurrentGreeting, user } = useAuth();
   const currentTheme = isDark ? colors.dark : colors.light;
+
+  // Atualiza a saudação quando o componente carrega ou o usuário muda
+  useEffect(() => {
+    setGreeting(getCurrentGreeting());
+  }, [user, getCurrentGreeting]);
+
+  // Atualiza a saudação a cada 30 segundos para variar
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setGreeting(getCurrentGreeting());
+    }, 30000);
+
+    return () => clearInterval(interval);
+  }, [getCurrentGreeting]);
 
   const handleSend = () => {
     if (message.trim()) {
@@ -19,6 +36,18 @@ const MainChatArea = () => {
 
   const handlePromptClick = (prompt) => {
     setMessage(prompt);
+  };
+
+  const getPersonalizedPrompts = () => {
+    const basePrompts = mockData.promptSuggestions;
+    if (user && user.name !== 'Secretário de Educação') {
+      return [
+        ...basePrompts,
+        `Como está o desempenho da ${user.municipality || 'nossa região'}?`,
+        `Relatório personalizado para ${user.name}`
+      ];
+    }
+    return basePrompts;
   };
 
   return (
@@ -40,9 +69,14 @@ const MainChatArea = () => {
         <div className="flex items-center gap-6">
           <MainLogo />
           <div className="flex flex-col justify-center gap-2">
-            <h1 className="aylla-greeting transition-colors duration-300">
-              Olá! Como posso ajudá-lo hoje?
+            <h1 className="aylla-greeting transition-all duration-500">
+              {greeting}
             </h1>
+            {user && user.name !== 'Secretário de Educação' && (
+              <p className="text-sm font-['Lato'] opacity-75 transition-colors duration-300" style={{ color: currentTheme.text.tertiary }}>
+                Bem-vindo de volta, {user.role} • {user.municipality}
+              </p>
+            )}
           </div>
         </div>
         
@@ -56,7 +90,7 @@ const MainChatArea = () => {
             
             {/* Prompt Suggestions */}
             <div className="flex items-center gap-2 flex-wrap">
-              {mockData.promptSuggestions.map((prompt, index) => (
+              {getPersonalizedPrompts().map((prompt, index) => (
                 <div
                   key={index}
                   onClick={() => handlePromptClick(prompt)}
@@ -100,7 +134,7 @@ const MainChatArea = () => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-              placeholder="Digite sua mensagem para Aylla"
+              placeholder={`Digite sua mensagem para Aylla${user ? `, ${user.name}` : ''}`}
               className="flex-1 bg-transparent outline-none transition-colors duration-300 aylla-input-placeholder"
               style={{ 
                 color: 'var(--Text-primary)'
