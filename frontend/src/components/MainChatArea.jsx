@@ -27,7 +27,7 @@ const MainChatArea = () => {
       <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none z-0">
         <div className="transform rotate-12">
           <img 
-            src="https://customer-assets.emergentagent.com/job_schooldata-ai/artifacts/8hiae8g5_Logo%20Aylla.jpg" 
+            src="/images/aylla-logo.jpg" 
             alt="Aylla Watermark" 
             className="w-96 h-96 object-contain"
           />
