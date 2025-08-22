@@ -164,7 +164,12 @@ const MainChatArea = () => {
             type="text"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            onKeyPress={(e) => e.key === 'Enter' && handleSend()}
+            onKeyPress={(e) => {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                handleSend();
+              }
+            }}
             placeholder={`Digite sua mensagem para Aylla, Sr. Oriovaldo`}
             className="flex-1 bg-transparent outline-none transition-colors duration-300 font-['Lato']"
             style={{ 
