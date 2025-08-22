@@ -92,7 +92,7 @@ const MainChatArea = () => {
             <div className="flex items-center gap-2 flex-wrap">
               {getPersonalizedPrompts().map((prompt, index) => (
                 <div
-                  key={index}
+                  key={`prompt-${index}-${prompt.slice(0, 10)}`}
                   onClick={() => handlePromptClick(prompt)}
                   className="px-3 py-2 border rounded-xl cursor-pointer transition-all duration-200 hover:shadow-md hover:scale-105 backdrop-blur-sm"
                   style={{
