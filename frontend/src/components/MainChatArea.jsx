@@ -16,11 +16,11 @@ const MainChatArea = () => {
     setGreeting(getCurrentGreeting());
   }, [user, getCurrentGreeting]);
 
-  // Atualiza a saudação a cada 30 segundos para variar
+  // Atualiza a saudação a cada 2 minutos para variar
   useEffect(() => {
     const interval = setInterval(() => {
       setGreeting(getCurrentGreeting());
-    }, 30000);
+    }, 120000); // 2 minutos = 120000ms
 
     return () => clearInterval(interval);
   }, [getCurrentGreeting]);
