@@ -72,11 +72,11 @@ export const AuthProvider = ({ children }) => {
     const userName = user?.name || 'Sr. Oriovaldo';
     
     if (hour < 12) {
-      return `Bom dia, ${userName}. Que este dia seja profícuo para a educação de nosso município.`;
+      return `Bom dia, ${userName}! Como posso ajudar você hoje?`;
     } else if (hour < 18) {
-      return `Boa tarde, ${userName}. Como posso auxiliá-lo em suas demandas educacionais nesta tarde?`;
+      return `Boa tarde, ${userName}! Em que posso auxiliá-lo?`;
     } else {
-      return `Boa noite, ${userName}. Estou à disposição para atendê-lo neste período noturno.`;
+      return `Boa noite, ${userName}! Como posso ajudá-lo?`;
     }
   };
 
