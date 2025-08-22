@@ -162,7 +162,7 @@ const MainChatArea = () => {
           {/* Instructions */}
           <div className="flex flex-col gap-2">
             <p className="aylla-instruction transition-colors duration-300">
-              Solicite informações à Aylla ou utilize os comandos sugeridos abaixo para iniciar
+              Faça uma pergunta ou use os comandos abaixo para começar
             </p>
             
             {/* Prompt Suggestions */}
