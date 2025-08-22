@@ -53,13 +53,38 @@ const MainChatArea = () => {
   return (
     <div className="max-w-[800px] mx-auto flex flex-col gap-10 pt-32 px-4 relative">
       {/* Marca d'água */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none z-0">
-        <div className="transform rotate-12">
+      <div className="absolute inset-0 flex items-center justify-center opacity-3 pointer-events-none z-0">
+        <div className="transform rotate-12 flex flex-col items-center gap-8">
+          {/* Logo Principal */}
           <img 
             src="/images/aylla-logo.jpg" 
             alt="Aylla Watermark" 
-            className="w-96 h-96 object-contain"
+            className="w-80 h-80 object-contain"
           />
+          {/* Logos Secundárias */}
+          <div className="flex gap-12">
+            <img 
+              src="/images/aylla-logo.jpg" 
+              alt="Aylla Secondary" 
+              className="w-32 h-32 object-contain opacity-50"
+            />
+            <img 
+              src="/images/aylla-logo.jpg" 
+              alt="Aylla Secondary" 
+              className="w-32 h-32 object-contain opacity-50"
+            />
+          </div>
+          {/* Padrão de Logos Menores */}
+          <div className="grid grid-cols-3 gap-8 opacity-30">
+            {Array.from({ length: 6 }, (_, i) => (
+              <img 
+                key={`watermark-${i}`}
+                src="/images/aylla-logo.jpg" 
+                alt="Aylla Pattern" 
+                className="w-16 h-16 object-contain"
+              />
+            ))}
+          </div>
         </div>
       </div>
 
