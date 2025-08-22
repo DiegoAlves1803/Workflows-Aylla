@@ -51,39 +51,37 @@ const MainChatArea = () => {
 
   return (
     <div className="max-w-[800px] mx-auto flex flex-col gap-10 pt-32 px-4 relative">
-      {/* Marca d'água */}
-      <div className="absolute inset-0 flex items-center justify-center opacity-3 pointer-events-none z-0">
-        <div className="transform rotate-12 flex flex-col items-center gap-8">
-          {/* Logo Principal */}
-          <img 
-            src="/images/aylla-logo.jpg" 
-            alt="Aylla Watermark" 
-            className="w-80 h-80 object-contain"
-          />
-          {/* Logos Secundárias */}
-          <div className="flex gap-12">
+      {/* Marca d'água Aylla - Padrão Elegante */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        {/* Marca d'água central principal */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-4">
+          <div className="transform rotate-12">
             <img 
               src="/images/aylla-logo.jpg" 
-              alt="Aylla Secondary" 
-              className="w-32 h-32 object-contain opacity-50"
-            />
-            <img 
-              src="/images/aylla-logo.jpg" 
-              alt="Aylla Secondary" 
-              className="w-32 h-32 object-contain opacity-50"
+              alt="Aylla Watermark" 
+              className="w-96 h-96 object-contain"
             />
           </div>
-          {/* Padrão de Logos Menores */}
-          <div className="grid grid-cols-3 gap-8 opacity-30">
-            {Array.from({ length: 6 }, (_, i) => (
-              <img 
-                key={`watermark-${i}`}
-                src="/images/aylla-logo.jpg" 
-                alt="Aylla Pattern" 
-                className="w-16 h-16 object-contain"
-              />
-            ))}
-          </div>
+        </div>
+        
+        {/* Padrão de logos menores espalhadas */}
+        <div className="absolute top-10 left-10 opacity-2">
+          <img src="/images/aylla-logo.jpg" alt="Aylla" className="w-20 h-20 object-contain transform rotate-45" />
+        </div>
+        <div className="absolute top-20 right-20 opacity-2">
+          <img src="/images/aylla-logo.jpg" alt="Aylla" className="w-16 h-16 object-contain transform -rotate-30" />
+        </div>
+        <div className="absolute bottom-32 left-20 opacity-2">
+          <img src="/images/aylla-logo.jpg" alt="Aylla" className="w-24 h-24 object-contain transform rotate-90" />
+        </div>
+        <div className="absolute bottom-20 right-32 opacity-2">
+          <img src="/images/aylla-logo.jpg" alt="Aylla" className="w-18 h-18 object-contain transform -rotate-45" />
+        </div>
+        <div className="absolute top-1/3 left-1/4 opacity-1">
+          <img src="/images/aylla-logo.jpg" alt="Aylla" className="w-12 h-12 object-contain transform rotate-180" />
+        </div>
+        <div className="absolute top-2/3 right-1/4 opacity-1">
+          <img src="/images/aylla-logo.jpg" alt="Aylla" className="w-14 h-14 object-contain transform -rotate-60" />
         </div>
       </div>
 
