@@ -72,7 +72,7 @@ const MainChatArea = () => {
             <h1 className="aylla-greeting transition-all duration-500">
               {greeting}
             </h1>
-            {user && user.name !== 'Secretário de Educação' && (
+            {user && user.name !== 'Sr. Oriovaldo' && (
               <p className="text-sm font-['Lato'] opacity-75 transition-colors duration-300" style={{ color: currentTheme.text.tertiary }}>
                 Bem-vindo de volta, {user.role} • {user.municipality}
               </p>
