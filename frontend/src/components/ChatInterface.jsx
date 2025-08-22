@@ -7,10 +7,12 @@ import Agenda from "./Agenda";
 import Alertas from "./Alertas";
 import Documentos from "./Documentos";
 import { mockData } from "../data/mockData";
+import { useTheme } from "../contexts/ThemeContext";
 
 const ChatInterface = () => {
   const [activeTab, setActiveTab] = useState("Chat");
   const [conversations, setConversations] = useState(mockData.conversations);
+  const { isDark, colors } = useTheme();
 
   const renderContent = () => {
     switch (activeTab) {
@@ -29,8 +31,30 @@ const ChatInterface = () => {
     }
   };
 
+  const currentTheme = isDark ? colors.dark : colors.light;
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-white p-4 relative">
+    <div 
+      className="min-h-screen p-4 relative transition-all duration-500"
+      style={{ 
+        background: currentTheme.background
+      }}
+    >
+      {/* Credits Display */}
+      <div className="absolute top-4 left-4 z-50">
+        <div 
+          className="px-4 py-2 rounded-full text-sm font-['Lato'] font-medium border backdrop-blur-sm transition-all duration-300"
+          style={{
+            backgroundColor: currentTheme.cardBg,
+            borderColor: currentTheme.border,
+            color: currentTheme.text.secondary,
+            boxShadow: currentTheme.shadow
+          }}
+        >
+          💰 Créditos: 4,92
+        </div>
+      </div>
+
       <div className="flex gap-4 h-[calc(100vh-2rem)]">
         {/* Sidebar */}
         <Sidebar conversations={conversations} />

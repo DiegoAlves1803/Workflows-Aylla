@@ -1,7 +1,11 @@
 import React from "react";
-import { MessageSquare, BarChart3, Calendar, Bell, FileText, Settings, MoreHorizontal } from "lucide-react";
+import { MessageSquare, BarChart3, Calendar, Bell, FileText, Settings, MoreHorizontal, Sun, Moon } from "lucide-react";
+import { useTheme } from "../contexts/ThemeContext";
 
 const TopNavigation = ({ activeTab, setActiveTab }) => {
+  const { isDark, toggleTheme, colors } = useTheme();
+  const currentTheme = isDark ? colors.dark : colors.light;
+  
   const tabs = [
     { name: "Chat", icon: MessageSquare },
     { name: "Meu Painel", icon: BarChart3 },
@@ -12,7 +16,14 @@ const TopNavigation = ({ activeTab, setActiveTab }) => {
 
   return (
     <div className="absolute top-0 right-0 left-0 z-10 flex justify-end pr-4 pt-4">
-      <div className="bg-white/90 backdrop-blur-sm rounded-full shadow-lg border border-blue-100 px-4 py-2 flex items-center justify-between max-w-fit">
+      <div 
+        className="rounded-full px-4 py-2 flex items-center justify-between max-w-fit backdrop-blur-sm transition-all duration-300 border"
+        style={{
+          backgroundColor: currentTheme.cardBg,
+          borderColor: currentTheme.border,
+          boxShadow: currentTheme.shadow
+        }}
+      >
         {/* Navigation Tabs */}
         <div className="flex items-center gap-4">
           {tabs.map((tab, index) => {
@@ -25,21 +36,17 @@ const TopNavigation = ({ activeTab, setActiveTab }) => {
                 onClick={() => setActiveTab(tab.name)}
                 className={`flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer transition-all duration-200 ${
                   isActive 
-                    ? "bg-gradient-to-r from-blue-100 to-blue-50 border border-blue-200 shadow-sm" 
-                    : "hover:bg-blue-50"
+                    ? `border shadow-sm` 
+                    : "hover:opacity-75"
                 }`}
+                style={{
+                  backgroundColor: isActive ? (isDark ? 'rgba(7, 201, 253, 0.2)' : 'rgba(59, 130, 246, 0.1)') : 'transparent',
+                  borderColor: isActive ? currentTheme.primary : 'transparent',
+                  color: isActive ? currentTheme.primary : currentTheme.text.tertiary
+                }}
               >
-                <Icon 
-                  size={16} 
-                  className={`transition-colors ${
-                    isActive ? "text-[#08215D]" : "text-[#64748B] hover:text-[#08215D]"
-                  }`} 
-                />
-                <span className={`text-sm font-['Lato'] transition-colors ${
-                  isActive 
-                    ? "font-bold text-[#08215D]" 
-                    : "font-medium text-[#64748B] hover:text-[#08215D]"
-                }`}>
+                <Icon size={16} />
+                <span className={`text-sm font-['Lato'] ${isActive ? "font-bold" : "font-medium"}`}>
                   {tab.name}
                 </span>
               </div>
@@ -50,16 +57,48 @@ const TopNavigation = ({ activeTab, setActiveTab }) => {
         {/* Right Side Icons and Avatar */}
         <div className="flex items-center gap-3 ml-6">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-blue-50 hover:bg-blue-100 border border-blue-200 flex items-center justify-center cursor-pointer transition-all duration-200">
-              <Settings size={16} className="text-[#08215D]" />
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="w-8 h-8 rounded-full border flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-105"
+              style={{
+                backgroundColor: isDark ? 'rgba(7, 201, 253, 0.2)' : 'rgba(59, 130, 246, 0.1)',
+                borderColor: currentTheme.border,
+                color: currentTheme.primary
+              }}
+            >
+              {isDark ? <Sun size={16} /> : <Moon size={16} />}
+            </button>
+
+            <div 
+              className="w-8 h-8 rounded-full border flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-105"
+              style={{
+                backgroundColor: isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(59, 130, 246, 0.05)',
+                borderColor: currentTheme.border,
+                color: currentTheme.primary
+              }}
+            >
+              <Settings size={16} />
             </div>
-            <div className="w-8 h-8 rounded-full bg-blue-50 hover:bg-blue-100 border border-blue-200 flex items-center justify-center cursor-pointer transition-all duration-200">
-              <MoreHorizontal size={16} className="text-[#08215D]" />
+            <div 
+              className="w-8 h-8 rounded-full border flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-105"
+              style={{
+                backgroundColor: isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(59, 130, 246, 0.05)',
+                borderColor: currentTheme.border,
+                color: currentTheme.primary
+              }}
+            >
+              <MoreHorizontal size={16} />
             </div>
           </div>
           
           {/* User Avatar */}
-          <div className="w-10 h-10 bg-gradient-to-r from-[#08215D] to-[#07C9FD] rounded-full flex items-center justify-center shadow-md">
+          <div 
+            className="w-10 h-10 rounded-full flex items-center justify-center shadow-md transition-all duration-300"
+            style={{
+              background: `linear-gradient(135deg, ${currentTheme.primary} 0%, ${currentTheme.secondary} 100%)`
+            }}
+          >
             <span className="text-white text-base font-semibold font-['Inter']">U</span>
           </div>
         </div>
