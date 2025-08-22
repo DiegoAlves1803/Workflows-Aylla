@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Paperclip, Send, Mic } from "lucide-react";
-import MainLogo from "./MainLogo";
 import { mockData } from "../data/mockData";
 import { useTheme } from "../contexts/ThemeContext";
 import { useAuth } from "../contexts/AuthContext";
