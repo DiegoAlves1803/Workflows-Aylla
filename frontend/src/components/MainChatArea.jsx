@@ -251,11 +251,11 @@ const MainChatArea = () => {
         {/* Welcome Section */}
         <div className="flex items-center gap-10">
           {/* Logo da Aylla ampliada */}
-          <div className="w-[180px] h-32 flex items-center justify-center">
+          <div className="w-[220px] h-40 flex items-center justify-center">
             <img 
               src="/images/aylla-logo.jpg" 
               alt="Aylla" 
-              className="h-28 w-auto object-contain"
+              className="h-36 w-auto object-contain"
             />
           </div>
           <div className="flex flex-col justify-center gap-3">
