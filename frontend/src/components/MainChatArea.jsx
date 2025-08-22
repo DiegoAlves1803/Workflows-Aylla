@@ -52,6 +52,11 @@ const MainChatArea = () => {
 
   const handleSend = async () => {
     if (message.trim()) {
+      // Prevenir sons do sistema
+      if (typeof window !== 'undefined' && window.speechSynthesis) {
+        window.speechSynthesis.cancel();
+      }
+      
       const userMessage = {
         type: 'user',
         content: message.trim(),
