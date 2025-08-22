@@ -19,7 +19,7 @@ const MainChatArea = () => {
   };
 
   return (
-    <div className="max-w-[800px] mx-auto flex flex-col gap-10 pt-16">
+    <div className="max-w-[800px] mx-auto flex flex-col gap-10 pt-32 px-4">
       {/* Welcome Section */}
       <div className="flex items-center gap-6">
         <MainLogo />
