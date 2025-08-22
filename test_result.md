@@ -199,6 +199,18 @@ frontend:
           agent: "main"
           comment: "Garantido que getCurrentGreeting sempre use 'Sr. Oriovaldo' independente do usuário logado"
 
+  - task: "Remover bips de sistema do chat"
+    implemented: true
+    working: true
+    file: "components/MainChatArea.jsx, App.css"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Removido bips de sistema: adicionado CSS para desabilitar tap highlights, preventDefault nos eventos, autoComplete off, spellCheck false, e cancelamento de speechSynthesis nos inputs e botões"
+
   - task: "Base de conhecimento PDDE expandida"
     implemented: true
     working: true
