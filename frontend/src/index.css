@@ -13,11 +13,22 @@ body {
         "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
+}
+
+/* Dark mode styles */
+html.dark {
+    color-scheme: dark;
+}
+
+html.dark body {
+    background-color: #0F172A;
+    color: #F8FAFC;
 }
 
 @layer base {
@@ -59,6 +70,7 @@ code {
         --neutrals-200: #CBD5E1;
         --border-primary: #CBD5E1;
     }
+  
   .dark {
         --background: 0 0% 3.9%;
         --foreground: 0 0% 98%;
@@ -84,6 +96,17 @@ code {
         --chart-3: 30 80% 55%;
         --chart-4: 280 65% 60%;
         --chart-5: 340 75% 55%;
+
+        /* Dark theme brand colors */
+        --brand-primary: #07C9FD;
+        --brand-secondary: #08215D;
+        --text-primary: #F8FAFC;
+        --text-secondary: #E2E8F0;
+        --text-tertiary: #94A3B8;
+        --background-subtle: #0F172A;
+        --neutrals-100: #1E293B;
+        --neutrals-200: #374151;
+        --border-primary: #374151;
     }
 }
 
@@ -94,4 +117,48 @@ code {
   body {
     @apply bg-background text-foreground;
     }
+}
+
+/* Smooth transitions */
+* {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Input placeholder styling for both themes */
+input::placeholder {
+    color: #64748B;
+    opacity: 0.7;
+    transition: color 0.3s ease;
+}
+
+.dark input::placeholder {
+    color: #94A3B8;
+    opacity: 0.7;
+}
+
+/* Custom scrollbar for both themes */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #374151;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+    background: #4B5563;
 }
