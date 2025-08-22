@@ -9,7 +9,7 @@ const ChatInterface = () => {
   const [conversations, setConversations] = useState(mockData.conversations);
 
   return (
-    <div className="min-h-screen bg-[#F6F9FF] p-4">
+    <div className="min-h-screen bg-[#F6F9FF] p-4 relative">
       <div className="flex gap-4 h-[calc(100vh-2rem)]">
         {/* Sidebar */}
         <Sidebar conversations={conversations} />
