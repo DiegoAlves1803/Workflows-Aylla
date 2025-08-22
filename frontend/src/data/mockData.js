@@ -65,11 +65,11 @@ export const mockData = {
   ],
   
   user: {
-    name: "Usuário",
-    initials: "U",
+    name: "Sr. Oriovaldo",
+    initials: "SO",
     avatar: null,
     role: "Secretário de Educação",
-    municipality: "Cidade Exemplo"
+    municipality: "Município de Oriovaldo"
   },
   
   currentChat: {
