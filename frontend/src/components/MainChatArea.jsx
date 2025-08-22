@@ -277,20 +277,6 @@ const MainChatArea = () => {
                   Próxima saudação em {Math.floor(nextUpdateIn / 60)}:{(nextUpdateIn % 60).toString().padStart(2, '0')}
                 </span>
               </div>
-              
-              {/* Botão de atualização manual */}
-              <button
-                onClick={handleManualUpdate}
-                className="text-xs px-2 py-1 rounded-md border transition-all duration-200 hover:scale-105 opacity-60 hover:opacity-100"
-                style={{
-                  borderColor: 'var(--Brand-primary)',
-                  color: 'var(--Brand-primary)',
-                  backgroundColor: isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)'
-                }}
-                title="Atualizar saudação agora"
-              >
-                Nova Saudação
-              </button>
             </div>
             
             {user && user.name !== 'Sr. Oriovaldo' && (
