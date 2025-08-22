@@ -53,15 +53,23 @@ export const AuthProvider = ({ children }) => {
   };
 
   const updateUserGreeting = () => {
+    const userName = user?.name || 'Sr. Oriovaldo';
+    
+    // Saudação fixa para Sr. Oriovaldo
+    if (userName === 'Sr. Oriovaldo' || !user) {
+      return "Olá, Sr. Oriovaldo! Como posso ajudá-lo hoje?";
+    }
+    
+    // Para outros usuários, mantém variações
     const greetings = [
-      `Olá, ${user?.name || 'Sr. Oriovaldo'}! Como posso ajudá-lo hoje?`,
-      `Bem-vindo, ${user?.name || 'Sr. Oriovaldo'}! Em que posso auxiliá-lo?`,
-      `Oi, ${user?.name || 'Sr. Oriovaldo'}! Como posso ser útil?`,
-      `Olá, ${user?.name || 'Sr. Oriovaldo'}! Estou aqui para ajudar.`,
-      `Bem-vindo de volta, ${user?.name || 'Sr. Oriovaldo'}!`,
-      `Oi, ${user?.name || 'Sr. Oriovaldo'}! Pronto para conversar?`,
-      `Olá! Como vai, ${user?.name || 'Sr. Oriovaldo'}?`,
-      `Bem-vindo, ${user?.name || 'Sr. Oriovaldo'}! Vamos começar?`
+      `Olá, ${userName}! Como posso ajudá-lo hoje?`,
+      `Bem-vindo, ${userName}! Em que posso auxiliá-lo?`,
+      `Oi, ${userName}! Como posso ser útil?`,
+      `Olá, ${userName}! Estou aqui para ajudar.`,
+      `Bem-vindo de volta, ${userName}!`,
+      `Oi, ${userName}! Pronto para conversar?`,
+      `Olá! Como vai, ${userName}?`,
+      `Bem-vindo, ${userName}! Vamos começar?`
     ];
     
     return greetings[Math.floor(Math.random() * greetings.length)];
