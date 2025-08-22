@@ -105,13 +105,13 @@ const MainChatArea = () => {
       {/* Content with higher z-index */}
       <div className="relative z-10">
         {/* Welcome Section */}
-        <div className="flex items-center gap-8">
-          {/* Logo da Aylla aumentada */}
-          <div className="w-[120px] h-24 flex items-center justify-center">
+        <div className="flex items-center gap-10">
+          {/* Logo da Aylla ampliada */}
+          <div className="w-[180px] h-32 flex items-center justify-center">
             <img 
               src="/images/aylla-logo.jpg" 
               alt="Aylla" 
-              className="h-20 w-auto object-contain"
+              className="h-28 w-auto object-contain"
             />
           </div>
           <div className="flex flex-col justify-center gap-3">
@@ -151,7 +151,7 @@ const MainChatArea = () => {
             
             {user && user.name !== 'Sr. Oriovaldo' && (
               <p className="text-sm font-['Lato'] opacity-75 transition-colors duration-300" style={{ color: currentTheme.text.tertiary }}>
-                Respeitosamente, {user.role} • {user.municipality}
+                Bem-vindo, {user.role} • {user.municipality}
               </p>
             )}
           </div>
