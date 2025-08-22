@@ -114,7 +114,7 @@ const MainChatArea = () => {
           {/* Instructions */}
           <div className="flex flex-col gap-2">
             <p className="aylla-instruction transition-colors duration-300">
-              Faça uma pergunta para Aylla ou use os prompts para começar
+              Solicite informações à Aylla ou utilize os comandos sugeridos abaixo para iniciar
             </p>
             
             {/* Prompt Suggestions */}
