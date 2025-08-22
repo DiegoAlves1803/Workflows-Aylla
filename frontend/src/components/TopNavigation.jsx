@@ -53,7 +53,7 @@ const TopNavigation = ({ activeTab, setActiveTab }) => {
           
           {/* User Avatar */}
           <div className="w-10 h-10 bg-[#08215D] rounded-full flex items-center justify-center">
-            <span className="text-[#F1F5F9] text-base font-semibold font-['Inter']">CX</span>
+            <span className="text-[#F1F5F9] text-base font-semibold font-['Inter']">U</span>
           </div>
         </div>
       </div>
