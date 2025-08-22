@@ -82,7 +82,7 @@ export const AuthProvider = ({ children }) => {
 
   const getCurrentGreeting = () => {
     if (!user) {
-      return "Prezado Sr. Oriovaldo, seja bem-vindo ao sistema Aylla de gestão educacional.";
+      return "Olá, Sr. Oriovaldo! Como posso ajudá-lo hoje?";
     }
     
     // Alterna entre saudações baseadas no tempo e personalizadas
