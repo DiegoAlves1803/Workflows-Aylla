@@ -347,6 +347,8 @@ const MainChatArea = () => {
               style={{ 
                 color: 'var(--Text-primary)'
               }}
+              autoComplete="off"
+              spellCheck="false"
             />
             
             {/* Action Buttons */}
