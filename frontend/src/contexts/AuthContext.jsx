@@ -66,7 +66,7 @@ export const AuthProvider = ({ children }) => {
 
   const getTimeBasedGreeting = () => {
     const hour = new Date().getHours();
-    const userName = user?.name || 'Secretário';
+    const userName = user?.name || 'Sr. Oriovaldo';
     
     if (hour < 12) {
       return `Bom dia, ${userName}! Como posso ajudá-lo nesta manhã?`;
