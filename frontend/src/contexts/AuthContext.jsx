@@ -79,7 +79,7 @@ export const AuthProvider = ({ children }) => {
 
   const getCurrentGreeting = () => {
     if (!user) {
-      return "Olá! Como posso ajudá-lo hoje?";
+      return "Olá, Sr. Oriovaldo! Como posso ajudá-lo hoje?";
     }
     
     // Alterna entre saudações baseadas no tempo e personalizadas
