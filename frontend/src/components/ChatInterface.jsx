@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useMemo } from "react";
 import Sidebar from "./Sidebar";
 import TopNavigation from "./TopNavigation";
 import MainChatArea from "./MainChatArea";
@@ -11,27 +11,25 @@ import { useTheme } from "../contexts/ThemeContext";
 
 const ChatInterface = () => {
   const [activeTab, setActiveTab] = useState("Chat");
-  const [conversations, setConversations] = useState(mockData.conversations);
+  const [conversations] = useState(mockData.conversations);
   const { isDark, colors } = useTheme();
 
-  const renderContent = () => {
-    switch (activeTab) {
-      case "Chat":
-        return <MainChatArea />;
-      case "Meu Painel":
-        return <MeuPainel />;
-      case "Agenda":
-        return <Agenda />;
-      case "Alertas":
-        return <Alertas />;
-      case "Documentos":
-        return <Documentos />;
-      default:
-        return <MainChatArea />;
-    }
-  };
+  const currentTheme = useMemo(() => 
+    isDark ? colors.dark : colors.light, 
+    [isDark, colors]
+  );
 
-  const currentTheme = isDark ? colors.dark : colors.light;
+  const renderContent = useCallback(() => {
+    const components = {
+      "Chat": <MainChatArea key="main-chat" />,
+      "Meu Painel": <MeuPainel key="meu-painel" />,
+      "Agenda": <Agenda key="agenda" />,
+      "Alertas": <Alertas key="alertas" />,
+      "Documentos": <Documentos key="documentos" />
+    };
+    
+    return components[activeTab] || components["Chat"];
+  }, [activeTab]);
 
   return (
     <div 
@@ -40,19 +38,21 @@ const ChatInterface = () => {
         background: currentTheme.background
       }}
     >
-
-
       <div className="flex gap-4 h-[calc(100vh-2rem)]">
         {/* Sidebar */}
-        <Sidebar conversations={conversations} />
+        <Sidebar conversations={conversations} key="sidebar" />
         
         {/* Main Content */}
         <div className="flex-1 flex flex-col">
           {/* Top Navigation */}
-          <TopNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
+          <TopNavigation 
+            activeTab={activeTab} 
+            setActiveTab={setActiveTab}
+            key="top-nav"
+          />
           
           {/* Content Area */}
-          <div className="flex-1 overflow-auto">
+          <div className="flex-1 overflow-auto" key={`content-${activeTab}`}>
             {renderContent()}
           </div>
         </div>
