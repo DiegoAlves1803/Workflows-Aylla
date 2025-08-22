@@ -4,7 +4,7 @@ export class EducationKnowledge {
     this.knowledgeBase = {
       // PDDE - Programa Dinheiro Direto na Escola
       pdde: {
-        keywords: ['pdde', 'dinheiro direto', 'programa dinheiro', 'recursos escola', 'fundos escola'],
+        keywords: ['pdde', 'dinheiro direto', 'programa dinheiro', 'recursos escola', 'fundos escola', 'unidade executora', 'adesão pdde'],
         responses: [
           {
             question: "O que é o PDDE?",
@@ -17,6 +17,34 @@ export class EducationKnowledge {
           {
             question: "Valores do PDDE",
             answer: "Os valores do PDDE para 2024 são:\n• Até 99 alunos: R$ 1.000\n• De 100 a 499 alunos: R$ 4.000\n• De 500 a 999 alunos: R$ 7.000\n• Mais de 1.000 alunos: R$ 10.000\n\nDesses valores, 80% é para custeio (material, manutenção) e 20% para capital (equipamentos permanentes)."
+          },
+          {
+            question: "Como criar uma Unidade Executora?",
+            answer: "Para escolas com mais de 99 alunos, é necessário criar uma Unidade Executora:\n• Deve ser constituída como pessoa jurídica de direito privado, sem fins lucrativos\n• Ter CNPJ próprio\n• Estatuto registrado em cartório\n• Conselho Deliberativo com participação da comunidade escolar\n• Pode ser APM (Associação de Pais e Mestres) ou Conselho Escolar\n• Precisa estar em situação regular no CNPJ"
+          },
+          {
+            question: "Prestação de contas do PDDE",
+            answer: "A prestação de contas do PDDE deve ser feita em até 30 dias após o término da execução:\n• Demonstrativo da Execução da Receita e Despesa\n• Relação de Bens Adquiridos\n• Extrato bancário da conta corrente\n• Conciliação bancária\n• Cópias dos comprovantes de despesas\n• O sistema PDDE Interativo deve ser atualizado com todas as informações"
+          },
+          {
+            question: "Em que pode ser gasto o PDDE?",
+            answer: "Recursos de CUSTEIO (80%):\n• Material de consumo (papel, limpeza, expediente)\n• Material de manutenção\n• Contratação de mão de obra para pequenos reparos\n• Serviços de terceiros\n\nRecursos de CAPITAL (20%):\n• Equipamentos permanentes\n• Material bibliográfico\n• Mobiliário escolar\n• Instrumentos musicais\n\nNÃO PODE: salários, gratificações, construção, reforma estrutural"
+          },
+          {
+            question: "Como fazer adesão ao PDDE?",
+            answer: "Para aderir ao PDDE:\n• Acessar o sistema PDDE Interativo no site do FNDE\n• Preencher o Plano de Atendimento da Escola (PAE)\n• Manter dados atualizados no Censo Escolar\n• Escolas com UEX devem manter dados atualizados no CNPJ\n• A adesão deve ser feita anualmente\n• Prazo geralmente é até junho de cada ano"
+          },
+          {
+            question: "PDDE Qualidade - Mais Alfabetização",
+            answer: "O PDDE Qualidade é uma ação específica para escolas com baixo IDEB:\n• Recursos extras para melhorar a alfabetização\n• Foco nos anos iniciais do ensino fundamental\n• Deve ser usado em materiais pedagógicos, jogos educativos, livros\n• Acompanhamento diferenciado pela Secretaria de Educação\n• Prestação de contas específica"
+          },
+          {
+            question: "Cronograma do PDDE",
+            answer: "Cronograma típico do PDDE:\n• Janeiro-Março: Abertura do sistema para adesão\n• Março-Junho: Prazo para adesão das escolas\n• Julho-Setembro: Análise e aprovação pelo FNDE\n• Setembro-Novembro: Repasse dos recursos\n• Durante o ano letivo seguinte: Execução dos recursos\n• 30 dias após execução: Prestação de contas"
+          },
+          {
+            question: "Problemas comuns no PDDE",
+            answer: "Principais problemas e soluções:\n• CNPJ irregular: Regularizar na Receita Federal\n• Dados desatualizados: Atualizar no Censo Escolar\n• Prestação de contas em atraso: Enviar documentação completa\n• Conta bancária incorreta: Informar dados corretos ao FNDE\n• Notas fiscais inadequadas: Verificar se estão em nome da UEX\n• Gastos indevidos: Restituir recursos e adequar prestação de contas"
           }
         ]
       },
