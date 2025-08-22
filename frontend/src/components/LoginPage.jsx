@@ -76,7 +76,7 @@ const LoginPage = () => {
             <img 
               src="/images/aylla-logo.jpg" 
               alt="Aylla Logo" 
-              className="h-12 w-auto filter brightness-0 invert"
+              className="h-16 w-auto filter brightness-0 invert"
             />
           </div>
 
