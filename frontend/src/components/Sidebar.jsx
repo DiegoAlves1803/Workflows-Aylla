@@ -23,14 +23,12 @@ const Sidebar = ({ conversations }) => {
       <div className="flex flex-col gap-3">
         <div 
           className="flex items-center gap-2 py-2 px-3 rounded-xl cursor-pointer transition-all duration-200 group hover:scale-[1.02]"
-          style={{ 
-            backgroundColor: 'transparent'
-          }}
+          style={{ backgroundColor: 'transparent' }}
           onMouseEnter={(e) => {
-            e.target.style.backgroundColor = isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)';
+            e.currentTarget.style.backgroundColor = isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)';
           }}
           onMouseLeave={(e) => {
-            e.target.style.backgroundColor = 'transparent';
+            e.currentTarget.style.backgroundColor = 'transparent';
           }}
         >
           <MessageSquare 
