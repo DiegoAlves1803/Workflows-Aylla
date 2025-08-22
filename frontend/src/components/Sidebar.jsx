@@ -85,15 +85,15 @@ const Sidebar = ({ conversations }) => {
         
         {/* Conversation List */}
         <div className="flex flex-col gap-2">
-          {conversations.map((conversation, index) => (
+          {conversations.map((conversation) => (
             <div 
-              key={index} 
+              key={`conversation-${conversation.id}`}
               className="cursor-pointer p-3 rounded-xl transition-all duration-200 group hover:scale-[1.02]"
               onMouseEnter={(e) => {
-                e.target.style.backgroundColor = isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)';
+                e.currentTarget.style.backgroundColor = isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)';
               }}
               onMouseLeave={(e) => {
-                e.target.style.backgroundColor = 'transparent';
+                e.currentTarget.style.backgroundColor = 'transparent';
               }}
             >
               <div className="aylla-conversa-item transition-colors">
