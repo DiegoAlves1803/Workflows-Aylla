@@ -49,6 +49,11 @@ const MainChatArea = () => {
     setMessage(prompt);
   };
 
+  const handleManualUpdate = () => {
+    setGreeting(getCurrentGreeting());
+    setNextUpdateIn(120); // Reset do contador
+  };
+
   const getPersonalizedPrompts = () => {
     const basePrompts = mockData.promptSuggestions;
     if (user && user.name !== 'Sr. Oriovaldo') {
