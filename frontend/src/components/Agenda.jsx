@@ -92,7 +92,7 @@ const Agenda = () => {
 
             <div className="space-y-4">
               {eventos.map((evento) => (
-                <div key={evento.id} className="border-l-4 border-[#07C9FD] bg-blue-50 rounded-r-xl p-4 hover:shadow-md transition-all duration-200">
+                <div key={`evento-${evento.id}`} className="border-l-4 border-[#07C9FD] bg-blue-50 rounded-r-xl p-4 hover:shadow-md transition-all duration-200">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <h3 className="text-lg font-['Lato'] font-semibold text-[#0F172A] mb-2">
