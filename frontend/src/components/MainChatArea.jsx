@@ -160,7 +160,7 @@ const MainChatArea = () => {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-            placeholder={`Digite sua pergunta educacional...`}
+            placeholder={`Digite sua mensagem para Aylla, Sr. Oriovaldo`}
             className="flex-1 bg-transparent outline-none transition-colors duration-300 font-['Lato']"
             style={{ 
               color: currentTheme.text.primary
