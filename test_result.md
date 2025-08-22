@@ -101,3 +101,60 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: "Corrigir problemas específicos na aplicação Aylla: 1) campo de digitação para a IA só a msg padrão, 2) O ícone da proatividade seja o mesmo de quem entrou no sistema, 3) saudação ao Sr. Oriovaldo"
+
+frontend:
+  - task: "Campo de digitação da IA corrigido"
+    implemented: false
+    working: false
+    file: "components/MainChatArea.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: false
+          agent: "main"
+          comment: "Usuário reporta que campo de digitação mostra apenas mensagem padrão"
+
+  - task: "Ícone de proatividade consistente"
+    implemented: false
+    working: false
+    file: "components/ChatMessages.jsx"
+    stuck_count: 0
+    priority: "high" 
+    needs_retesting: true
+    status_history:
+        - working: false
+          agent: "main"
+          comment: "Ícone de proatividade deve ser igual ao ícone do usuário logado"
+
+  - task: "Saudação Sr. Oriovaldo consistente"
+    implemented: true
+    working: true
+    file: "contexts/AuthContext.jsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Saudação para Sr. Oriovaldo parece estar funcionando corretamente"
+
+metadata:
+  created_by: "main_agent"
+  version: "1.0"
+  test_sequence: 1
+  run_ui: false
+
+test_plan:
+  current_focus:
+    - "Campo de digitação da IA corrigido"
+    - "Ícone de proatividade consistente"
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+agent_communication:
+    - agent: "main"
+      message: "Investigando problemas reportados pelo usuário: campo de digitação, ícone de proatividade e saudação. A saudação parece estar funcionando, mas preciso corrigir os outros dois problemas."
