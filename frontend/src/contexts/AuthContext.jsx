@@ -54,22 +54,25 @@ export const AuthProvider = ({ children }) => {
 
   const updateUserGreeting = () => {
     const userName = user?.name || 'Sr. Oriovaldo';
+    const hour = new Date().getHours();
     
-    // Saudação fixa para Sr. Oriovaldo
-    if (userName === 'Sr. Oriovaldo' || !user) {
-      return "Olá, Sr. Oriovaldo! Como posso ajudá-lo hoje?";
+    let timeGreeting;
+    if (hour < 12) {
+      timeGreeting = "Bom dia";
+    } else if (hour < 18) {
+      timeGreeting = "Boa tarde";
+    } else {
+      timeGreeting = "Boa noite";
     }
     
-    // Para outros usuários, mantém variações
+    // Saudações cordiais e personalizadas baseadas no horário
     const greetings = [
-      `Olá, ${userName}! Como posso ajudá-lo hoje?`,
-      `Bem-vindo, ${userName}! Em que posso auxiliá-lo?`,
-      `Oi, ${userName}! Como posso ser útil?`,
-      `Olá, ${userName}! Estou aqui para ajudar.`,
-      `Bem-vindo de volta, ${userName}!`,
-      `Oi, ${userName}! Pronto para conversar?`,
-      `Olá! Como vai, ${userName}?`,
-      `Bem-vindo, ${userName}! Vamos começar?`
+      `${timeGreeting}, ${userName}! Como posso ajudá-lo?`,
+      `${timeGreeting}, ${userName}! Em que posso ser útil hoje?`,
+      `${timeGreeting}, ${userName}! Estou aqui para auxiliá-lo.`,
+      `${timeGreeting}, ${userName}! Como posso colaborar com você?`,
+      `${timeGreeting}, ${userName}! Pronto para nossa conversa?`,
+      `${timeGreeting}, ${userName}! Vamos trabalhar juntos?`
     ];
     
     return greetings[Math.floor(Math.random() * greetings.length)];
