@@ -92,12 +92,29 @@ export const AuthProvider = ({ children }) => {
   };
 
   const getCurrentGreeting = () => {
-    if (!user) {
-      return "Olá, Sr. Oriovaldo! Como posso ajudá-lo hoje?";
+    const userName = "Sr. Oriovaldo"; // Sempre usar Sr. Oriovaldo como padrão
+    const hour = new Date().getHours();
+    
+    let timeGreeting;
+    if (hour < 12) {
+      timeGreeting = "Bom dia";
+    } else if (hour < 18) {
+      timeGreeting = "Boa tarde";
+    } else {
+      timeGreeting = "Boa noite";
     }
     
-    // Alterna entre saudações baseadas no tempo e personalizadas
-    return Math.random() > 0.5 ? getTimeBasedGreeting() : updateUserGreeting();
+    // Saudações cordiais e personalizadas baseadas no horário
+    const greetings = [
+      `${timeGreeting}, ${userName}! Como posso ajudá-lo?`,
+      `${timeGreeting}, ${userName}! Em que posso ser útil hoje?`,
+      `${timeGreeting}, ${userName}! Estou aqui para auxiliá-lo.`,
+      `${timeGreeting}, ${userName}! Como posso colaborar com você?`,
+      `${timeGreeting}, ${userName}! Pronto para nossa conversa?`,
+      `${timeGreeting}, ${userName}! Vamos trabalhar juntos?`
+    ];
+    
+    return greetings[Math.floor(Math.random() * greetings.length)];
   };
 
   const value = {
