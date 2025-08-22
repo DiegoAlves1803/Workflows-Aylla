@@ -382,7 +382,10 @@ const MainChatArea = () => {
               </div>
               
               <button
-                onClick={handleSend}
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleSend();
+                }}
                 className="w-10 h-10 rounded-full border flex items-center justify-center cursor-pointer transition-all duration-200 hover:shadow-lg hover:scale-110"
                 style={{
                   background: `linear-gradient(135deg, var(--Brand-primary) 0%, var(--Brand-secondary) 100%)`,
