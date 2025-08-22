@@ -254,6 +254,6 @@ agent_communication:
     - agent: "main"
       message: "Investigando problemas reportados pelo usuário: campo de digitação, ícone de proatividade e saudação. A saudação parece estar funcionando, mas preciso corrigir os outros dois problemas."
     - agent: "main"
-      message: "NOVAS CORREÇÕES IMPLEMENTADAS: Removidos os bips de sistema do chat e caixas de digitação através de: 1) CSS global para desabilitar tap highlights e feedbacks sonoros, 2) preventDefault nos eventos Enter e Click, 3) autoComplete='off' e spellCheck='false' nos inputs, 4) Cancelamento de speechSynthesis no handleSend. Agora a interface está completamente silenciosa."
+      message: "ÍCONES DA AYLLA AUMENTADOS: Implementado aumento de tamanho em todos os locais onde aparece o logo da Aylla: 1) Sidebar: h-6→h-8, 2) Chat avatar: w-6 h-6→w-8 h-8, 3) Logo principal: h-28→h-36, 4) Header do chat: w-10→w-12, 5) Página de login: h-12→h-16. Todos os ícones estão agora mais visíveis e proeminentes na interface."
     - agent: "testing"
       message: "BACKEND TESTING COMPLETED: Created comprehensive backend_test.py and executed full test suite. Results: ✅ FastAPI server running correctly ✅ All API endpoints (/api/, POST/GET /api/status) working ✅ MongoDB connectivity verified ✅ Data persistence working ✅ Error handling proper. Minor issue: CORS OPTIONS method not handled, but doesn't affect functionality. Backend is fully operational and ready for production use."
