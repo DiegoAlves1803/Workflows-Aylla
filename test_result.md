@@ -106,28 +106,34 @@ user_problem_statement: "Corrigir problemas específicos na aplicação Aylla: 1
 
 frontend:
   - task: "Campo de digitação da IA corrigido"
-    implemented: false
-    working: false
+    implemented: true
+    working: true
     file: "components/MainChatArea.jsx"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: false
           agent: "main"
           comment: "Usuário reporta que campo de digitação mostra apenas mensagem padrão"
+        - working: true
+          agent: "main"
+          comment: "Corrigido placeholder para mostrar sempre 'Digite sua mensagem para Aylla, Sr. Oriovaldo'"
 
   - task: "Ícone de proatividade consistente"
-    implemented: false
-    working: false
+    implemented: true
+    working: true
     file: "components/ChatMessages.jsx"
     stuck_count: 0
     priority: "high" 
-    needs_retesting: true
+    needs_retesting: false
     status_history:
         - working: false
           agent: "main"
           comment: "Ícone de proatividade deve ser igual ao ícone do usuário logado"
+        - working: true
+          agent: "main"
+          comment: "Corrigido ícone do usuário para sempre mostrar 'SO' (Sr. Oriovaldo) de forma consistente"
 
   - task: "Saudação Sr. Oriovaldo consistente"
     implemented: true
@@ -140,6 +146,21 @@ frontend:
         - working: true
           agent: "main"
           comment: "Saudação para Sr. Oriovaldo parece estar funcionando corretamente"
+        - working: true
+          agent: "main"
+          comment: "Garantido que getCurrentGreeting sempre use 'Sr. Oriovaldo' independente do usuário logado"
+
+  - task: "Base de conhecimento PDDE expandida"
+    implemented: true
+    working: true
+    file: "services/educationKnowledge.js"
+    stuck_count: 0
+    priority: "medium" 
+    needs_retesting: true
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Expandido conhecimento PDDE com 7 novos tópicos: unidade executora, prestação de contas, gastos permitidos, adesão, PDDE Qualidade, cronograma e problemas comuns"
 
 metadata:
   created_by: "main_agent"
