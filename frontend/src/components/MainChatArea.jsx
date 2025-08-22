@@ -7,6 +7,7 @@ import { useAuth } from "../contexts/AuthContext";
 const MainChatArea = () => {
   const [message, setMessage] = useState("");
   const [greeting, setGreeting] = useState("");
+  const [nextUpdateIn, setNextUpdateIn] = useState(120); // 2 minutos em segundos
   const { isDark, colors } = useTheme();
   const { getCurrentGreeting, user } = useAuth();
   const currentTheme = isDark ? colors.dark : colors.light;
@@ -14,16 +15,27 @@ const MainChatArea = () => {
   // Atualiza a saudação quando o componente carrega ou o usuário muda
   useEffect(() => {
     setGreeting(getCurrentGreeting());
+    setNextUpdateIn(120); // Reset do contador
   }, [user, getCurrentGreeting]);
 
   // Atualiza a saudação a cada 2 minutos para variar
   useEffect(() => {
     const interval = setInterval(() => {
       setGreeting(getCurrentGreeting());
+      setNextUpdateIn(120); // Reset do contador
     }, 120000); // 2 minutos = 120000ms
 
     return () => clearInterval(interval);
   }, [getCurrentGreeting]);
+
+  // Contador regressivo para próxima atualização
+  useEffect(() => {
+    const countdown = setInterval(() => {
+      setNextUpdateIn(prev => prev > 0 ? prev - 1 : 120);
+    }, 1000);
+
+    return () => clearInterval(countdown);
+  }, []);
 
   const handleSend = () => {
     if (message.trim()) {
