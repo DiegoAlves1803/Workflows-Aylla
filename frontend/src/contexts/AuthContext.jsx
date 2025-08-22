@@ -54,14 +54,14 @@ export const AuthProvider = ({ children }) => {
 
   const updateUserGreeting = () => {
     const greetings = [
-      `Prezado ${user?.name || 'Sr. Oriovaldo'}, é uma honra tê-lo em nossa plataforma educacional.`,
-      `Excelentíssimo ${user?.name || 'Sr. Oriovaldo'}, seja bem-vindo ao sistema Aylla de gestão educacional.`,
-      `Ilustríssimo ${user?.name || 'Sr. Oriovaldo'}, como posso auxiliá-lo em suas demandas educacionais hoje?`,
-      `Respeitoso cumprimento, ${user?.name || 'Sr. Oriovaldo'}. Estou à disposição para atendê-lo.`,
-      `Saudações cordiais, ${user?.name || 'Sr. Oriovaldo'}. Como posso colaborar com sua gestão educacional?`,
-      `Distintos cumprimentos, ${user?.name || 'Sr. Oriovaldo'}. Em que posso ser útil à educação municipal?`,
-      `Cordial saudação, ${user?.name || 'Sr. Oriovaldo'}. Aguardo suas orientações para melhor atendê-lo.`,
-      `Respeitosas saudações, ${user?.name || 'Sr. Oriovaldo'}. Como posso contribuir com sua administração educacional?`
+      `Olá, ${user?.name || 'Sr. Oriovaldo'}! Como posso ajudá-lo hoje?`,
+      `Bem-vindo, ${user?.name || 'Sr. Oriovaldo'}! Em que posso auxiliá-lo?`,
+      `Oi, ${user?.name || 'Sr. Oriovaldo'}! Como posso ser útil?`,
+      `Olá, ${user?.name || 'Sr. Oriovaldo'}! Estou aqui para ajudar.`,
+      `Bem-vindo de volta, ${user?.name || 'Sr. Oriovaldo'}!`,
+      `Oi, ${user?.name || 'Sr. Oriovaldo'}! Pronto para conversar?`,
+      `Olá! Como vai, ${user?.name || 'Sr. Oriovaldo'}?`,
+      `Bem-vindo, ${user?.name || 'Sr. Oriovaldo'}! Vamos começar?`
     ];
     
     return greetings[Math.floor(Math.random() * greetings.length)];
