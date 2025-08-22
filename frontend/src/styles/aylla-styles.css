@@ -153,3 +153,20 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--Text-tertiary);
 }
+
+/* Watermark opacity classes */
+.opacity-1 {
+  opacity: 0.01;
+}
+
+.opacity-2 {
+  opacity: 0.02;
+}
+
+.opacity-3 {
+  opacity: 0.03;
+}
+
+.opacity-4 {
+  opacity: 0.04;
+}
