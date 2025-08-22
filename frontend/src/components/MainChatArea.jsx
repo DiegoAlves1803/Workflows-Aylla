@@ -113,6 +113,23 @@ const MainChatArea = () => {
             <h1 className="aylla-greeting transition-all duration-500">
               {greeting}
             </h1>
+            
+            {/* Indicador de Temporizador */}
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1 opacity-60">
+                <div 
+                  className="w-2 h-2 rounded-full animate-pulse"
+                  style={{ backgroundColor: 'var(--Brand-primary)' }}
+                ></div>
+                <span 
+                  className="text-xs font-['Lato'] font-normal"
+                  style={{ color: currentTheme.text.tertiary }}
+                >
+                  Próxima saudação em {Math.floor(nextUpdateIn / 60)}:{(nextUpdateIn % 60).toString().padStart(2, '0')}
+                </span>
+              </div>
+            </div>
+            
             {user && user.name !== 'Sr. Oriovaldo' && (
               <p className="text-sm font-['Lato'] opacity-75 transition-colors duration-300" style={{ color: currentTheme.text.tertiary }}>
                 Respeitosamente, {user.role} • {user.municipality}
