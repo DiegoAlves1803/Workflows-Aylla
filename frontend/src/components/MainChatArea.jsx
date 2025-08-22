@@ -163,7 +163,7 @@ const MainChatArea = () => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSend()}
-              placeholder={`Digite sua mensagem para Aylla${user ? `, ${user.name}` : ''}`}
+              placeholder={`Prezado usuário, digite sua solicitação para Aylla${user ? `, ${user.name}` : ''}`}
               className="flex-1 bg-transparent outline-none transition-colors duration-300 aylla-input-placeholder"
               style={{ 
                 color: 'var(--Text-primary)'
