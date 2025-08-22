@@ -23,15 +23,15 @@ const MainChatArea = () => {
   // Atualiza a saudação quando o componente carrega ou o usuário muda
   useEffect(() => {
     setGreeting(getCurrentGreeting());
-    setNextUpdateIn(120);
+    setNextUpdateIn(30);
   }, [user, getCurrentGreeting]);
 
-  // Atualiza a saudação a cada 2 minutos para variar
+  // Atualiza a saudação a cada 30 segundos para variar
   useEffect(() => {
     const interval = setInterval(() => {
       setGreeting(getCurrentGreeting());
-      setNextUpdateIn(120);
-    }, 120000);
+      setNextUpdateIn(30);
+    }, 30000);
 
     return () => clearInterval(interval);
   }, [getCurrentGreeting]);
@@ -39,7 +39,7 @@ const MainChatArea = () => {
   // Contador regressivo para próxima atualização
   useEffect(() => {
     const countdown = setInterval(() => {
-      setNextUpdateIn(prev => prev > 0 ? prev - 1 : 120);
+      setNextUpdateIn(prev => prev > 0 ? prev - 1 : 30);
     }, 1000);
 
     return () => clearInterval(countdown);
@@ -47,7 +47,7 @@ const MainChatArea = () => {
 
   const handleManualUpdate = () => {
     setGreeting(getCurrentGreeting());
-    setNextUpdateIn(120);
+    setNextUpdateIn(30);
   };
 
   const handleSend = async () => {
