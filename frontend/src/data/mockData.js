@@ -44,8 +44,8 @@ export const mockData = {
   ],
   
   user: {
-    name: "Charles Xavier",
-    initials: "CX",
+    name: "Usuário",
+    initials: "U",
     avatar: null
   },
   
