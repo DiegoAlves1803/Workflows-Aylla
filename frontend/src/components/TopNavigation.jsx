@@ -11,8 +11,8 @@ const TopNavigation = ({ activeTab, setActiveTab }) => {
   ];
 
   return (
-    <div className="absolute top-4 right-4 left-[336px]">
-      <div className="bg-white rounded-full shadow-[0px_8px_24px_rgba(12,12,13,0.06)] px-4 py-2 flex items-center justify-between">
+    <div className="absolute top-0 right-0 left-0 z-10 flex justify-end pr-4 pt-4">
+      <div className="bg-white rounded-full shadow-[0px_8px_24px_rgba(12,12,13,0.06)] px-4 py-2 flex items-center justify-between max-w-fit">
         {/* Navigation Tabs */}
         <div className="flex items-center gap-6">
           {tabs.map((tab, index) => {
