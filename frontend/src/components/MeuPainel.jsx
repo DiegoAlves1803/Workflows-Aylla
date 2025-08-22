@@ -332,9 +332,9 @@ const MeuPainel = () => {
         {/* Table Rows */}
         {[1, 2, 3, 4].map((item) => (
           <div 
-            key={item} 
+            key={`programa-row-${item}`} 
             className="py-4 transition-all duration-300"
-            style={{ borderBottom: `1px solid ${currentTheme.border}` }}
+            style={{ borderBottom: `1px solid var(--Border-primary)` }}
           >
             <div className="grid grid-cols-6 gap-4 items-center">
               <div>
