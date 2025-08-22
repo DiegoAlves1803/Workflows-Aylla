@@ -199,6 +199,18 @@ frontend:
           agent: "main"
           comment: "Garantido que getCurrentGreeting sempre use 'Sr. Oriovaldo' independente do usuário logado"
 
+  - task: "Remover botão Nova Saudação e alterar timer para 30s"
+    implemented: true
+    working: true
+    file: "components/MainChatArea.jsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Removido botão 'Nova Saudação' da interface e alterado timer de saudações de 120s (2min) para 30s. Interface mais limpa e saudações mais dinâmicas."
+
   - task: "Ícones da Aylla maiores"
     implemented: true
     working: true
