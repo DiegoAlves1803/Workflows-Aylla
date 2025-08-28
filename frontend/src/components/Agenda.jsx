@@ -117,6 +117,63 @@ const Agenda = () => {
     "#0EA5E9"  // Azul claro
   ];
 
+  const getPriorityIcon = (priority) => {
+    switch(priority) {
+      case 'urgent':
+        return <AlertTriangle size={14} className="text-red-500" />;
+      case 'high':
+        return <AlertTriangle size={14} className="text-orange-500" />;
+      case 'medium':
+        return <Clock size={14} className="text-yellow-500" />;
+      case 'low':
+        return <Clock size={14} className="text-green-500" />;
+      default:
+        return <Clock size={14} className="text-gray-500" />;
+    }
+  };
+
+  const getStatusIcon = (status) => {
+    switch(status) {
+      case 'completed':
+        return <CheckCircle size={14} className="text-green-500" />;
+      case 'pending':
+        return <Clock size={14} className="text-yellow-500" />;
+      case 'cancelled':
+        return <XCircle size={14} className="text-red-500" />;
+      default:
+        return <Clock size={14} className="text-gray-500" />;
+    }
+  };
+
+  const getPriorityLabel = (priority) => {
+    const labels = {
+      urgent: "Urgente",
+      high: "Alta",
+      medium: "Média", 
+      low: "Baixa"
+    };
+    return labels[priority] || "Normal";
+  };
+
+  const getStatusLabel = (status) => {
+    const labels = {
+      completed: "Concluído",
+      pending: "Pendente",
+      cancelled: "Cancelado"
+    };
+    return labels[status] || "Agendado";
+  };
+
+  const sortedTasks = [...tasks].sort((a, b) => {
+    // Primeiro por data (mais recente primeiro)
+    const dateA = new Date(a.date.split('/').reverse().join('-'));
+    const dateB = new Date(b.date.split('/').reverse().join('-'));
+    if (dateB.getTime() !== dateA.getTime()) {
+      return dateB.getTime() - dateA.getTime();
+    }
+    // Depois por horário
+    return b.time.localeCompare(a.time);
+  });
   const getDaysInMonth = (date) => {
     const year = date.getFullYear();
     const month = date.getMonth();
