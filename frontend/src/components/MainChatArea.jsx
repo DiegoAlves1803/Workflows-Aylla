@@ -346,7 +346,7 @@ const MainChatArea = () => {
                   handleSend();
                 }
               }}
-            placeholder={`Digite sua mensagem para Aylla, Sr. Oriovaldo`}
+            placeholder={`Digite sua mensagem para Aylla, Senhor Secretário`}
               className="flex-1 bg-transparent outline-none transition-colors duration-300 aylla-input-placeholder"
               style={{ 
                 color: 'var(--Text-primary)'
