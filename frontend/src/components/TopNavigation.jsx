@@ -149,16 +149,153 @@ const TopNavigation = ({ activeTab, setActiveTab }) => {
               {isDark ? <Sun size={16} /> : <Moon size={16} />}
             </button>
 
-            <div 
-              className="w-8 h-8 rounded-full border flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-105"
-              style={{
-                backgroundColor: isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)',
-                borderColor: 'var(--Border-primary)',
-                color: 'var(--Brand-primary)'
-              }}
-              title="Notificações"
-            >
-              <Bell size={16} />
+            {/* Notifications */}
+            <div className="relative">
+              <button
+                onClick={() => setShowNotifications(!showNotifications)}
+                className="w-8 h-8 rounded-full border flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-105 relative"
+                style={{
+                  backgroundColor: isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)',
+                  borderColor: 'var(--Border-primary)',
+                  color: 'var(--Brand-primary)'
+                }}
+                title="Notificações"
+              >
+                <Bell size={16} />
+                {unreadCount > 0 && (
+                  <span 
+                    className="absolute -top-1 -right-1 w-4 h-4 rounded-full text-xs font-bold flex items-center justify-center text-white"
+                    style={{ backgroundColor: '#EF4444' }}
+                  >
+                    {unreadCount}
+                  </span>
+                )}
+              </button>
+
+              {/* Notifications Dropdown */}
+              {showNotifications && (
+                <div 
+                  className="absolute right-0 top-12 w-80 rounded-2xl border shadow-lg z-50 max-h-96 overflow-y-auto"
+                  style={{
+                    backgroundColor: currentTheme.cardBg,
+                    borderColor: currentTheme.border
+                  }}
+                >
+                  {/* Header */}
+                  <div className="p-4 border-b" style={{ borderColor: currentTheme.border }}>
+                    <div className="flex items-center justify-between">
+                      <h3 
+                        className="font-['Lato'] font-semibold transition-colors duration-300"
+                        style={{ color: currentTheme.text.primary }}
+                      >
+                        Notificações
+                      </h3>
+                      <span 
+                        className="text-xs px-2 py-1 rounded-full"
+                        style={{
+                          backgroundColor: isDark ? 'rgba(239, 68, 68, 0.2)' : 'rgba(239, 68, 68, 0.1)',
+                          color: '#EF4444'
+                        }}
+                      >
+                        {unreadCount} não lidas
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Notifications List */}
+                  <div className="max-h-64 overflow-y-auto">
+                    {notifications.length === 0 ? (
+                      <div className="p-6 text-center">
+                        <Bell 
+                          size={32} 
+                          className="mx-auto mb-2 opacity-50"
+                          style={{ color: currentTheme.text.tertiary }}
+                        />
+                        <p 
+                          className="text-sm font-['Lato']"
+                          style={{ color: currentTheme.text.tertiary }}
+                        >
+                          Nenhuma notificação
+                        </p>
+                      </div>
+                    ) : (
+                      notifications.map((notification) => (
+                        <div
+                          key={notification.id}
+                          className={`p-3 border-b transition-all duration-200 hover:bg-opacity-50 cursor-pointer ${
+                            !notification.read ? 'bg-opacity-10' : ''
+                          }`}
+                          style={{
+                            borderColor: currentTheme.border,
+                            backgroundColor: !notification.read 
+                              ? (isDark ? 'rgba(7, 201, 253, 0.05)' : 'rgba(8, 33, 93, 0.02)')
+                              : 'transparent'
+                          }}
+                        >
+                          <div className="flex items-start gap-3">
+                            <div className="text-lg mt-0.5">
+                              {getNotificationIcon(notification.type)}
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <h4 
+                                className={`text-sm font-['Lato'] mb-1 ${
+                                  !notification.read ? 'font-semibold' : 'font-medium'
+                                } transition-colors duration-300`}
+                                style={{ color: currentTheme.text.primary }}
+                              >
+                                {notification.title}
+                                {notification.priority === 'high' && (
+                                  <span 
+                                    className="ml-2 text-xs px-1 py-0.5 rounded"
+                                    style={{
+                                      backgroundColor: '#FEE2E2',
+                                      color: '#DC2626'
+                                    }}
+                                  >
+                                    Urgente
+                                  </span>
+                                )}
+                              </h4>
+                              <p 
+                                className="text-xs font-['Lato'] mb-1 transition-colors duration-300"
+                                style={{ color: currentTheme.text.secondary }}
+                              >
+                                {notification.message}
+                              </p>
+                              <p 
+                                className="text-xs font-['Lato'] transition-colors duration-300"
+                                style={{ color: currentTheme.text.tertiary }}
+                              >
+                                {notification.time}
+                              </p>
+                            </div>
+                            {!notification.read && (
+                              <div 
+                                className="w-2 h-2 rounded-full mt-1"
+                                style={{ backgroundColor: 'var(--Brand-primary)' }}
+                              />
+                            )}
+                          </div>
+                        </div>
+                      ))
+                    )}
+                  </div>
+
+                  {/* Footer */}
+                  <div 
+                    className="p-3 text-center border-t"
+                    style={{ borderColor: currentTheme.border }}
+                  >
+                    <button 
+                      className="text-xs font-['Lato'] transition-colors duration-200 hover:underline"
+                      style={{ color: 'var(--Brand-primary)' }}
+                      onClick={() => setShowNotifications(false)}
+                    >
+                      Ver todas as notificações
+                    </button>
+                  </div>
+                </div>
+              )}
             </div>
             
             {/* Logout Button */}
