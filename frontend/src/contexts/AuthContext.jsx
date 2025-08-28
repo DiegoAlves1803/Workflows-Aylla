@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }) => {
       id: Date.now().toString(),
       name: credentials.login || 'Senhor Secretário',
       role: 'Secretário de Educação',
-      municipality: 'Município de Oriovaldo',
+      municipality: 'Município Teste',
       login: credentials.login || 'secretario',
       loginTime: new Date().toISOString(),
       rememberMe: rememberMe
