@@ -24,7 +24,7 @@ const Agenda = () => {
       name: "Reunião 1",
       time: "09:00",
       date: "27/08/2025",
-      color: "#22C55E",
+      color: "#059669", // Verde vibrante
       priority: "medium",
       status: "completed",
       description: "Reunião com diretores sobre planejamento semestral"
@@ -34,7 +34,7 @@ const Agenda = () => {
       name: "Reunião 2", 
       time: "09:30",
       date: "27/08/2025",
-      color: "#22C55E",
+      color: "#059669", // Verde vibrante
       priority: "high",
       status: "pending",
       description: "Conselho Municipal de Educação - Orçamento 2025"
@@ -44,7 +44,7 @@ const Agenda = () => {
       name: "Análise FUNDEB",
       time: "14:00",
       date: "27/08/2025",
-      color: "#3B82F6",
+      color: "#2563EB", // Azul vibrante
       priority: "high",
       status: "pending",
       description: "Análise trimestral dos recursos FUNDEB"
@@ -54,7 +54,7 @@ const Agenda = () => {
       name: "Prestação PDDE",
       time: "15:30",
       date: "27/08/2025",
-      color: "#F59E0B",
+      color: "#EA580C", // Laranja vibrante
       priority: "urgent",
       status: "pending",
       description: "Urgente: Prestação de contas vence em 8 dias"
@@ -64,7 +64,7 @@ const Agenda = () => {
       name: "Relatório Mensal",
       time: "16:00",
       date: "27/08/2025",
-      color: "#8B5CF6",
+      color: "#7C3AED", // Roxo vibrante
       priority: "low",
       status: "completed",
       description: "Relatório de atividades de julho"
@@ -75,7 +75,7 @@ const Agenda = () => {
       name: "Visita EMEF João Silva",
       time: "10:00",
       date: "25/08/2025",
-      color: "#06B6D4",
+      color: "#0891B2", // Ciano vibrante
       priority: "medium",
       status: "completed",
       description: "Inspeção de infraestrutura concluída"
@@ -85,7 +85,7 @@ const Agenda = () => {
       name: "Formação de Professores",
       time: "14:30",
       date: "24/08/2025",
-      color: "#8B5CF6",
+      color: "#7C3AED", // Roxo vibrante
       priority: "high",
       status: "completed",
       description: "Workshop sobre metodologias ativas"
@@ -95,7 +95,7 @@ const Agenda = () => {
       name: "Reunião PNAE",
       time: "11:00",
       date: "23/08/2025",
-      color: "#EF4444",
+      color: "#DC2626", // Vermelho vibrante
       priority: "medium",
       status: "cancelled",
       description: "Cancelada - Reagendada para setembro"
