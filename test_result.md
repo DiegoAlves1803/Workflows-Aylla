@@ -199,6 +199,30 @@ frontend:
           agent: "main"
           comment: "Garantido que getCurrentGreeting sempre use 'Sr. Oriovaldo' independente do usuário logado"
 
+  - task: "Alterar saudação para Senhor Secretário"
+    implemented: true
+    working: true
+    file: "contexts/AuthContext.jsx, components/MainChatArea.jsx, components/ChatMessages.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Alterado todas as referências de 'Sr. Oriovaldo' para 'Senhor Secretário': saudações no AuthContext, placeholders nos inputs do MainChatArea, ícone do usuário de 'SO' para 'SS' no ChatMessages"
+
+  - task: "Componente Documentos atualizado"
+    implemented: true
+    working: true
+    file: "components/Documentos.jsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Atualizado componente Documentos com sistema de temas, 6 documentos educacionais, categorias com ícones, filtros funcionais, botões de ação (visualizar, download, excluir), integração com identidade visual Aylla"
+
   - task: "Landing Page completa implementada"
     implemented: true
     working: true
