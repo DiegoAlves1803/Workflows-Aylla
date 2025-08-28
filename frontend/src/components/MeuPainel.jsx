@@ -2,9 +2,62 @@ import React from "react";
 import { Clock, TrendingUp, MessageSquare } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 
-const MeuPainel = () => {
+const MeuPainel = ({ setActiveTab }) => {
   const { isDark, colors } = useTheme();
   const currentTheme = isDark ? colors.dark : colors.light;
+
+  const handleAnalyzeWithAylla = () => {
+    // Generate analysis prompt based on current dashboard data
+    const analysisPrompt = `Aylla, por favor faça uma análise detalhada dos resultados financeiros do Senhor Secretário baseado nos dados do painel:
+
+RECURSOS TOTAIS: R$ 980.450,00
+- FUNDEB: R$ 854.300,00 (87%)  
+- PDDE: R$ 89.650,00 (9%)
+- PNAE: R$ 36.500,00 (4%)
+
+SITUAÇÃO ATUAL:
+- Recursos Executados: R$ 756.234,00 (77%)
+- Recursos Disponíveis: R$ 224.216,00 (23%)
+
+PRAZOS DE PRESTAÇÃO:
+- FUNDEB: Vencimento em 15 dias
+- PDDE: Vencimento em 8 dias  
+- PNAE: Vencimento em 22 dias
+
+Por favor, forneça insights sobre:
+1. Eficiência na execução dos recursos
+2. Situação dos prazos de prestação de contas
+3. Recomendações para otimização
+4. Alertas importantes que requerem atenção
+5. Comparação com metas e indicadores educacionais`;
+
+    // Switch to chat tab and send the analysis prompt
+    setActiveTab('Chat');
+    
+    // Use setTimeout to ensure tab switch happens first
+    setTimeout(() => {
+      // Simulate sending the analysis prompt to chat
+      const chatInput = document.querySelector('input[placeholder*="Digite sua mensagem"]');
+      if (chatInput) {
+        // Create and dispatch events to simulate user typing
+        const inputEvent = new Event('input', { bubbles: true });
+        chatInput.value = analysisPrompt;
+        chatInput.dispatchEvent(inputEvent);
+        
+        // Trigger change event
+        const changeEvent = new Event('change', { bubbles: true });
+        chatInput.dispatchEvent(changeEvent);
+        
+        // Auto-send the message
+        setTimeout(() => {
+          const sendButton = document.querySelector('button:has(svg[data-lucide="send"])');
+          if (sendButton) {
+            sendButton.click();
+          }
+        }, 500);
+      }
+    }, 300);
+  };
 
   return (
     <div className="pt-32 px-8 max-w-7xl mx-auto">
