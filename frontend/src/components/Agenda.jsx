@@ -61,7 +61,7 @@ const Agenda = () => {
 
   const dayNames = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"];
 
-  const colors = [
+  const colorPalette = [
     "#3B82F6", // Azul (selecionado por padrão)
     "#EF4444", // Vermelho
     "#22C55E", // Verde
