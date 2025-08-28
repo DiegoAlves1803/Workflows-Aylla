@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Calendar, ChevronLeft, ChevronRight, Plus, X } from "lucide-react";
+import { Calendar, ChevronLeft, ChevronRight, Plus, X, Clock, AlertTriangle, CheckCircle, XCircle } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 
 const Agenda = () => {
