@@ -217,7 +217,7 @@ const MainChatArea = () => {
   }
 
   return (
-    <div className="max-w-[800px] mx-auto flex flex-col gap-10 pt-32 px-4 relative">
+    <div className="max-w-[800px] mx-auto flex flex-col gap-6 md:gap-10 pt-32 px-4 md:px-6 lg:px-8 relative">
       {/* Marca d'água Aylla - Padrão Elegante */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <div className="absolute inset-0 flex items-center justify-center opacity-4">
@@ -225,27 +225,27 @@ const MainChatArea = () => {
             <img 
               src="/images/aylla-logo.jpg" 
               alt="Aylla Watermark" 
-              className="w-96 h-96 object-contain"
+              className="w-64 h-64 md:w-96 md:h-96 object-contain"
             />
           </div>
         </div>
         
-        <div className="absolute top-10 left-10 opacity-2">
+        <div className="hidden md:block absolute top-10 left-10 opacity-2">
           <img src="/images/aylla-logo.jpg" alt="Aylla" className="w-20 h-20 object-contain transform rotate-45" />
         </div>
-        <div className="absolute top-20 right-20 opacity-2">
+        <div className="hidden md:block absolute top-20 right-20 opacity-2">
           <img src="/images/aylla-logo.jpg" alt="Aylla" className="w-16 h-16 object-contain transform -rotate-30" />
         </div>
-        <div className="absolute bottom-32 left-20 opacity-2">
+        <div className="hidden md:block absolute bottom-32 left-20 opacity-2">
           <img src="/images/aylla-logo.jpg" alt="Aylla" className="w-24 h-24 object-contain transform rotate-90" />
         </div>
-        <div className="absolute bottom-20 right-32 opacity-2">
+        <div className="hidden md:block absolute bottom-20 right-32 opacity-2">
           <img src="/images/aylla-logo.jpg" alt="Aylla" className="w-18 h-18 object-contain transform -rotate-45" />
         </div>
-        <div className="absolute top-1/3 left-1/4 opacity-1">
+        <div className="hidden lg:block absolute top-1/3 left-1/4 opacity-1">
           <img src="/images/aylla-logo.jpg" alt="Aylla" className="w-12 h-12 object-contain transform rotate-180" />
         </div>
-        <div className="absolute top-2/3 right-1/4 opacity-1">
+        <div className="hidden lg:block absolute top-2/3 right-1/4 opacity-1">
           <img src="/images/aylla-logo.jpg" alt="Aylla" className="w-14 h-14 object-contain transform -rotate-60" />
         </div>
       </div>
@@ -253,22 +253,22 @@ const MainChatArea = () => {
       {/* Content with higher z-index */}
       <div className="relative z-10">
         {/* Welcome Section */}
-        <div className="flex items-center gap-10">
+        <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
           {/* Logo da Aylla ampliada */}
-          <div className="w-[220px] h-40 flex items-center justify-center">
+          <div className="w-[160px] h-32 md:w-[220px] md:h-40 flex items-center justify-center">
             <img 
               src="/images/aylla-logo.jpg" 
               alt="Aylla" 
-              className="h-36 w-auto object-contain"
+              className="h-24 md:h-36 w-auto object-contain"
             />
           </div>
-          <div className="flex flex-col justify-center gap-3">
-            <h1 className="aylla-greeting transition-all duration-500">
+          <div className="flex flex-col justify-center gap-3 text-center md:text-left">
+            <h1 className="aylla-greeting transition-all duration-500 text-xl md:text-2xl lg:text-3xl">
               {greeting}
             </h1>
             
             {/* Indicador de Temporizador */}
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
               <div className="flex items-center gap-1 opacity-60">
                 <div 
                   className="w-2 h-2 rounded-full animate-pulse"
@@ -294,18 +294,18 @@ const MainChatArea = () => {
         {/* Content Section */}
         <div className="flex flex-col gap-6">
           {/* Instructions */}
-          <div className="flex flex-col gap-2">
-            <p className="aylla-instruction transition-colors duration-300">
+          <div className="flex flex-col gap-2 text-center md:text-left">
+            <p className="aylla-instruction transition-colors duration-300 text-sm md:text-base">
               Faça uma pergunta ou use os comandos abaixo para começar
             </p>
             
             {/* Prompt Suggestions */}
-            <div className="flex items-center gap-2 flex-wrap">
+            <div className="flex items-center justify-center md:justify-start gap-2 flex-wrap">
               {getPersonalizedPrompts().map((prompt, index) => (
                 <div
                   key={`prompt-${index}-${prompt.slice(0, 10)}`}
                   onClick={() => handlePromptClick(prompt)}
-                  className="px-3 py-2 border rounded-xl cursor-pointer transition-all duration-200 hover:shadow-md hover:scale-105 backdrop-blur-sm"
+                  className="px-2 md:px-3 py-2 border rounded-xl cursor-pointer transition-all duration-200 hover:shadow-md hover:scale-105 backdrop-blur-sm text-xs md:text-sm"
                   style={{
                     backgroundColor: isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)',
                     borderColor: 'var(--Border-primary)'
@@ -321,54 +321,56 @@ const MainChatArea = () => {
           
           {/* Chat Input */}
           <div 
-            className="h-[88px] px-4 py-6 backdrop-blur-sm border rounded-3xl flex items-center gap-3 transition-all duration-300"
+            className="h-[80px] md:h-[88px] px-3 md:px-4 py-4 md:py-6 backdrop-blur-sm border rounded-2xl md:rounded-3xl flex flex-col md:flex-row items-center gap-3 transition-all duration-300"
             style={{
               backgroundColor: currentTheme.cardBg,
               borderColor: 'var(--Border-primary)',
               boxShadow: currentTheme.shadow
             }}
           >
-            {/* Mic Icon */}
-            <div 
-              className="w-8 h-8 border rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-110"
-              style={{
-                backgroundColor: isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)',
-                borderColor: 'var(--Border-primary)'
-              }}
-            >
-              <Mic size={16} style={{ color: 'var(--Brand-primary)' }} />
+            {/* Mobile: Input above buttons */}
+            <div className="w-full md:flex-1 order-2 md:order-1">
+              <input
+                type="text"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                onKeyPress={(e) => {
+                  if (e.key === 'Enter') {
+                    e.preventDefault();
+                    handleSend();
+                  }
+                }}
+              placeholder={`Digite sua mensagem para Aylla, Senhor Secretário`}
+                className="w-full bg-transparent outline-none transition-colors duration-300 aylla-input-placeholder text-sm md:text-base"
+                style={{ 
+                  color: 'var(--Text-primary)'
+                }}
+                autoComplete="off"
+                spellCheck="false"
+              />
             </div>
             
-            {/* Input Field */}
-            <input
-              type="text"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              onKeyPress={(e) => {
-                if (e.key === 'Enter') {
-                  e.preventDefault();
-                  handleSend();
-                }
-              }}
-            placeholder={`Digite sua mensagem para Aylla, Senhor Secretário`}
-              className="flex-1 bg-transparent outline-none transition-colors duration-300 aylla-input-placeholder"
-              style={{ 
-                color: 'var(--Text-primary)'
-              }}
-              autoComplete="off"
-              spellCheck="false"
-            />
-            
             {/* Action Buttons */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 order-1 md:order-2">
+              {/* Mic Icon */}
               <div 
-                className="w-8 h-8 border rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-110"
+                className="w-7 h-7 md:w-8 md:h-8 border rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-110"
                 style={{
                   backgroundColor: isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)',
                   borderColor: 'var(--Border-primary)'
                 }}
               >
-                <Paperclip size={16} style={{ color: 'var(--Brand-primary)' }} />
+                <Mic size={14} style={{ color: 'var(--Brand-primary)' }} />
+              </div>
+              
+              <div 
+                className="w-7 h-7 md:w-8 md:h-8 border rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-110"
+                style={{
+                  backgroundColor: isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)',
+                  borderColor: 'var(--Border-primary)'
+                }}
+              >
+                <Paperclip size={14} style={{ color: 'var(--Brand-primary)' }} />
               </div>
               
               <button
@@ -376,13 +378,13 @@ const MainChatArea = () => {
                   e.preventDefault();
                   handleSend();
                 }}
-                className="w-10 h-10 rounded-full border flex items-center justify-center cursor-pointer transition-all duration-200 hover:shadow-lg hover:scale-110"
+                className="w-8 h-8 md:w-10 md:h-10 rounded-full border flex items-center justify-center cursor-pointer transition-all duration-200 hover:shadow-lg hover:scale-110"
                 style={{
                   background: `linear-gradient(135deg, var(--Brand-primary) 0%, var(--Brand-secondary) 100%)`,
                   borderColor: 'var(--Brand-primary)'
                 }}
               >
-                <Send size={20} className="text-white" />
+                <Send size={16} className="text-white" />
               </button>
             </div>
           </div>
