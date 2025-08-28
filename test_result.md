@@ -199,6 +199,42 @@ frontend:
           agent: "main"
           comment: "Garantido que getCurrentGreeting sempre use 'Sr. Oriovaldo' independente do usuário logado"
 
+  - task: "Nova marca d'água Frame 153 no chat"
+    implemented: true
+    working: true
+    file: "components/MainChatArea.jsx, images/aylla-watermark.png"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Implementada nova marca d'água usando Frame 153.png: imagem principal centralizada (500x500px), marcas secundárias menores com rotações variadas, opacidades graduais (opacity-20 a opacity-8), responsiva (hidden em mobile para performance)"
+
+  - task: "Linhas calendário mais fortes e cores vibrantes"
+    implemented: true
+    working: true
+    file: "components/Agenda.jsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Fortalecidas linhas do calendário (border-2 vs border), cor #475569 para maior contraste. Cores das tarefas atualizadas para mais vibrantes: Azul #2563EB, Vermelho #DC2626, Verde #059669, Ciano #0891B2, Roxo #7C3AED, Laranja #EA580C, aplicadas em todas as tarefas existentes"
+
+  - task: "Histórico de compromissos com ícones prioridade"
+    implemented: true
+    working: true
+    file: "components/Agenda.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Implementado sidebar completo (1/4 layout): 8 compromissos históricos ordenados por data, ícones de prioridade (AlertTriangle urgente/alta, Clock média/baixa), ícones de status (CheckCircle concluído, Clock pendente, XCircle cancelado), badges coloridos por prioridade/status, descrições detalhadas"
+
   - task: "Município alterado para 'Município Teste'"
     implemented: true
     working: true
