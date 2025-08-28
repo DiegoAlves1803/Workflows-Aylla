@@ -242,7 +242,9 @@ const Agenda = () => {
         description: newTask.description,
         time: newTask.time,
         date: newTask.date,
-        color: newTask.color
+        color: newTask.color,
+        priority: newTask.priority,
+        status: newTask.status
       };
       setTasks([...tasks, task]);
       setNewTask({
@@ -250,7 +252,9 @@ const Agenda = () => {
         description: '',
         date: '29/08/2025',
         time: '10:00',
-        color: '#3B82F6'
+        color: '#3B82F6',
+        priority: 'medium',
+        status: 'pending'
       });
       setShowNewTaskModal(false);
     }
