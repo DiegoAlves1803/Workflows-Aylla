@@ -13,7 +13,9 @@ const Agenda = () => {
     description: '',
     date: '29/08/2025',
     time: '10:00',
-    color: '#3B82F6' // Azul padrão
+    color: '#3B82F6', // Azul padrão
+    priority: 'medium',
+    status: 'pending'
   });
   
   const [tasks, setTasks] = useState([
