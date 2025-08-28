@@ -372,11 +372,11 @@ const Agenda = () => {
                 return (
                   <div
                     key={index}
-                    className={`min-h-[120px] p-2 border-r border-b transition-all duration-200 relative ${
+                    className={`min-h-[120px] p-2 border-r-2 border-b-2 transition-all duration-200 relative ${
                       dayObj.isCurrentMonth ? 'hover:bg-opacity-50' : 'opacity-40'
                     }`}
                     style={{ 
-                      borderColor: currentTheme.border,
+                      borderColor: isDark ? '#475569' : '#475569',
                       backgroundColor: dayObj.isToday 
                         ? (isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)')
                         : 'transparent'
