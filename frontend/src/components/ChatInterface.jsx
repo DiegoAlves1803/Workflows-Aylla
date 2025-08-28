@@ -21,10 +21,11 @@ const ChatInterface = () => {
 
   const renderContent = useCallback(() => {
     const components = {
-      "Chat": <MainChatArea key="main-chat" />,
-      "Meu Painel": <MeuPainel key="meu-painel" />,
+      "Chat": <MainChatArea key="main-chat" setActiveTab={setActiveTab} />,
+      "Meu Painel": <MeuPainel key="meu-painel" setActiveTab={setActiveTab} />,
       "Agenda": <Agenda key="agenda" />,
-      "Alertas": <Notificacoes key="alertas" />,
+      "Alertas": <Alertas key="alertas" />,
+      "Notificações": <Notificacoes key="notificacoes" />,
       "Documentos": <Documentos key="documentos" />
     };
     
