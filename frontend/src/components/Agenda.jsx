@@ -13,7 +13,7 @@ const Agenda = () => {
     description: '',
     date: '29/08/2025',
     time: '10:00',
-    color: '#3B82F6', // Azul padrão
+    color: '#2563EB', // Azul vibrante padrão
     priority: 'medium',
     status: 'pending'
   });
