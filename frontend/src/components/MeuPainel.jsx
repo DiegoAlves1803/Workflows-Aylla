@@ -85,28 +85,34 @@ const MeuPainel = ({ setActiveTab }) => {
 
   const handleAnalyzeWithAylla = () => {
     // Generate analysis prompt based on current dashboard data
-    const analysisPrompt = `Aylla, por favor faça uma análise detalhada dos resultados financeiros do Senhor Secretário baseado nos dados do painel:
+    const analysisPrompt = `Aylla, por favor faça uma análise detalhada dos resultados financeiros do Senhor Secretário do Município Teste baseado nos dados fictícios do painel:
 
-RECURSOS TOTAIS: R$ 980.450,00
-- FUNDEB: R$ 854.300,00 (87%)  
-- PDDE: R$ 89.650,00 (9%)
-- PNAE: R$ 36.500,00 (4%)
+RECURSOS TOTAIS: R$ 1.250.000,00 (valores fictícios)
+- FUNDEB: R$ 950.000,00 (76%)  
+- PDDE: R$ 180.000,00 (14,4%)
+- PNAE: R$ 120.000,00 (9,6%)
 
-SITUAÇÃO ATUAL:
-- Recursos Executados: R$ 756.234,00 (77%)
-- Recursos Disponíveis: R$ 224.216,00 (23%)
+SITUAÇÃO ATUAL DE EXECUÇÃO:
+- Recursos Executados: R$ 862.500,00 (69%)
+- Recursos Disponíveis: R$ 387.500,00 (31%)
 
 PRAZOS DE PRESTAÇÃO:
 - FUNDEB: Vencimento em 15 dias
-- PDDE: Vencimento em 8 dias  
+- PDDE: Vencimento em 8 dias (CRÍTICO)
 - PNAE: Vencimento em 22 dias
 
+PENDÊNCIAS:
+- Prestação PDDE Escola Municipal João Silva (8 dias - ALTA prioridade)
+- Relatório FUNDEB julho/2025 (15 dias - MÉDIA prioridade)  
+- Análise Nutricional PNAE 2º semestre (22 dias - BAIXA prioridade)
+
 Por favor, forneça insights sobre:
-1. Eficiência na execução dos recursos
-2. Situação dos prazos de prestação de contas
-3. Recomendações para otimização
-4. Alertas importantes que requerem atenção
-5. Comparação com metas e indicadores educacionais`;
+1. Eficiência na execução dos recursos (69% executado)
+2. Situação crítica dos prazos de prestação de contas
+3. Recomendações para otimização dos 31% disponíveis
+4. Alertas importantes que requerem atenção imediata
+5. Comparação com metas e indicadores educacionais do Município Teste
+6. Estratégias para resolver a situação crítica do PDDE`;
 
     // Switch to chat tab and send the analysis prompt
     setActiveTab('Chat');
