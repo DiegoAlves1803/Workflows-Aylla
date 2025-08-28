@@ -106,20 +106,20 @@ const MainChatArea = () => {
 
   if (showChat) {
     return (
-      <div className="max-w-[1000px] mx-auto flex flex-col h-full pt-32 px-4 relative">
+      <div className="max-w-[1000px] mx-auto flex flex-col h-full pt-32 px-4 md:px-6 lg:px-8 relative">
         {/* Chat Header */}
-        <div className="flex items-center justify-between mb-4 pb-4 border-b" style={{ borderColor: 'var(--Border-primary)' }}>
+        <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 pb-4 border-b gap-4" style={{ borderColor: 'var(--Border-primary)' }}>
           <div className="flex items-center gap-3">
             <img 
               src="/images/aylla-logo.jpg" 
               alt="Aylla" 
-              className="w-12 h-12 object-contain"
+              className="w-10 h-10 md:w-12 md:h-12 object-contain"
             />
             <div>
-              <h2 className="text-xl font-['Lexend'] font-medium" style={{ color: currentTheme.text.primary }}>
+              <h2 className="text-lg md:text-xl font-['Lexend'] font-medium" style={{ color: currentTheme.text.primary }}>
                 Conversa com Aylla
               </h2>
-              <p className="text-sm" style={{ color: currentTheme.text.tertiary }}>
+              <p className="text-xs md:text-sm" style={{ color: currentTheme.text.tertiary }}>
                 Assistente Educacional Inteligente
               </p>
             </div>
@@ -127,7 +127,7 @@ const MainChatArea = () => {
           
           <button
             onClick={startNewConversation}
-            className="px-4 py-2 rounded-lg border text-sm font-['Lato'] transition-all duration-200 hover:scale-105"
+            className="px-3 md:px-4 py-2 rounded-lg border text-xs md:text-sm font-['Lato'] transition-all duration-200 hover:scale-105 w-full md:w-auto"
             style={{
               borderColor: 'var(--Brand-primary)',
               color: 'var(--Brand-primary)',
@@ -143,51 +143,55 @@ const MainChatArea = () => {
 
         {/* Input Area */}
         <div 
-          className="mt-4 p-4 backdrop-blur-sm border rounded-3xl flex items-center gap-3 transition-all duration-300"
+          className="mt-4 p-3 md:p-4 backdrop-blur-sm border rounded-2xl md:rounded-3xl flex flex-col md:flex-row items-center gap-3 transition-all duration-300"
           style={{
             backgroundColor: currentTheme.cardBg,
             borderColor: 'var(--Border-primary)',
             boxShadow: currentTheme.shadow
           }}
         >
-          <div 
-            className="w-8 h-8 border rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-110"
-            style={{
-              backgroundColor: isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)',
-              borderColor: 'var(--Border-primary)'
-            }}
-          >
-            <Mic size={16} style={{ color: 'var(--Brand-primary)' }} />
+          {/* Mobile: Input above buttons */}
+          <div className="w-full md:flex-1 order-2 md:order-1">
+            <input
+              type="text"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              onKeyPress={(e) => {
+                if (e.key === 'Enter') {
+                  e.preventDefault();
+                  handleSend();
+                }
+              }}
+              placeholder={`Digite sua mensagem para Aylla, Senhor Secretário`}
+              className="w-full bg-transparent outline-none transition-colors duration-300 font-['Lato'] text-sm md:text-base"
+              style={{ 
+                color: currentTheme.text.primary
+              }}
+              autoComplete="off"
+              spellCheck="false"
+            />
           </div>
           
-          <input
-            type="text"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            onKeyPress={(e) => {
-              if (e.key === 'Enter') {
-                e.preventDefault();
-                handleSend();
-              }
-            }}
-            placeholder={`Digite sua mensagem para Aylla, Senhor Secretário`}
-            className="flex-1 bg-transparent outline-none transition-colors duration-300 font-['Lato']"
-            style={{ 
-              color: currentTheme.text.primary
-            }}
-            autoComplete="off"
-            spellCheck="false"
-          />
-          
-          <div className="flex items-center gap-2">
+          {/* Action Buttons */}
+          <div className="flex items-center gap-2 order-1 md:order-2">
             <div 
-              className="w-8 h-8 border rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-110"
+              className="w-7 h-7 md:w-8 md:h-8 border rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-110"
               style={{
                 backgroundColor: isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)',
                 borderColor: 'var(--Border-primary)'
               }}
             >
-              <Paperclip size={16} style={{ color: 'var(--Brand-primary)' }} />
+              <Mic size={14} style={{ color: 'var(--Brand-primary)' }} />
+            </div>
+            
+            <div 
+              className="w-7 h-7 md:w-8 md:h-8 border rounded-full flex items-center justify-center cursor-pointer transition-all duration-200 hover:scale-110"
+              style={{
+                backgroundColor: isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)',
+                borderColor: 'var(--Border-primary)'
+              }}
+            >
+              <Paperclip size={14} style={{ color: 'var(--Brand-primary)' }} />
             </div>
             
             <button
@@ -196,7 +200,7 @@ const MainChatArea = () => {
                 handleSend();
               }}
               disabled={!message.trim() || isLoading}
-              className="w-10 h-10 rounded-full border flex items-center justify-center cursor-pointer transition-all duration-200 hover:shadow-lg hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-8 h-8 md:w-10 md:h-10 rounded-full border flex items-center justify-center cursor-pointer transition-all duration-200 hover:shadow-lg hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
               style={{
                 background: message.trim() && !isLoading 
                   ? `linear-gradient(135deg, var(--Brand-primary) 0%, var(--Brand-secondary) 100%)`
@@ -204,7 +208,7 @@ const MainChatArea = () => {
                 borderColor: 'var(--Brand-primary)'
               }}
             >
-              <Send size={20} className="text-white" />
+              <Send size={16} className="text-white" />
             </button>
           </div>
         </div>
