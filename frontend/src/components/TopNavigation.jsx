@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { MessageSquare, BarChart3, Calendar, AlertTriangle, FileText, Bell, MoreHorizontal, Sun, Moon, LogOut } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 import { useAuth } from "../contexts/AuthContext";
