@@ -166,6 +166,40 @@ export class EducationKnowledge {
             answer: "O AEE é um serviço que complementa o ensino regular para alunos com:\n• Deficiências (física, intelectual, visual, auditiva)\n• Transtornos do espectro autista\n• Altas habilidades/superdotação\n\nO AEE acontece na Sala de Recursos, geralmente no contraturno, e ensina recursos e estratégias específicas para cada aluno."
           }
         ]
+      },
+
+      // FUNDEB - Conhecimento Avançado
+      fundeb_avancado: {
+        keywords: ['fundeb detalhado', 'recursos fundeb', 'aplicação fundeb', '70% profissionais', 'mde fundeb'],
+        responses: [
+          {
+            question: "Como aplicar corretamente os recursos do FUNDEB?",
+            answer: "**Aplicação Correta dos Recursos FUNDEB:**\n\n**Regra dos 70%:**\n• Mínimo 70% em remuneração de profissionais da educação\n• Inclui: professores, pedagogos, diretores, secretários escolares\n• Base de cálculo: valor total recebido no exercício\n• R$ 854.300 × 70% = R$ 598.010 mínimo\n\n**30% Restantes (R$ 256.290):**\n• Outras ações de MDE (Manutenção e Desenvolvimento do Ensino)\n• Construção e reformas de escolas\n• Aquisição de equipamentos e materiais\n• Capacitação de profissionais\n• Transporte escolar\n\n**Vedações Importantes:**\n• Pessoal aposentado\n• Assistência social\n• Obras de saneamento\n• Formação de reservas financeiras\n\n**Controle e Fiscalização:**\n• Conselho de Acompanhamento do FUNDEB (CACS)\n• Tribunal de Contas\n• Ministério Público\n• Controladoria Geral da União"
+          },
+          {
+            question: "Como calcular e comprovar os 70% do FUNDEB em profissionais?",
+            answer: "**Cálculo e Comprovação dos 70% FUNDEB:**\n\n**Base de Cálculo:**\n• Total recebido: R$ 854.300\n• 70% obrigatório: R$ 598.010\n• Valor já aplicado: Verificar folha de pagamento\n\n**Profissionais Elegíveis:**\n✅ **Podem ser pagos:**\n• Professores da educação básica\n• Profissionais que exercem atividades de suporte pedagógico\n• Direção escolar, administração, planejamento\n• Inspeção, supervisão e orientação educacional\n\n❌ **NÃO podem ser pagos:**\n• Aposentados e pensionistas\n• Profissionais de outras secretarias\n• Serviços terceirizados de limpeza\n• Vigilantes e porteiros\n\n**Documentação para Comprovação:**\n• Folha de pagamento mensal\n• Relatório anual de aplicação\n• Demonstrativo de cumprimento dos 70%\n• Relação nominal dos profissionais\n• Função/cargo de cada profissional"
+          },
+          {
+            question: "Quais são as penalidades por má aplicação do FUNDEB?",
+            answer: "**Penalidades por Má Aplicação do FUNDEB:**\n\n**Penalidades Administrativas:**\n• Suspensão de transferências federais\n• Devolução de recursos com correção\n• Instauração de Tomada de Contas Especial\n• Cadastro de inadimplentes (CAUC, CADIN)\n\n**Penalidades Criminais:**\n• Improbidade administrativa (Lei 8.429/92)\n• Aplicação irregular de verbas (Código Penal)\n• Responsabilização pessoal do gestor\n\n**Para o Município:**\n• Perda de certificação no CAUC\n• Impossibilidade de novos convênios\n• Suspensão de transferências voluntárias\n• Intervenção do Estado (casos graves)\n\n**Para o Gestor:**\n• Ressarcimento ao erário\n• Multa civil (até 100x a remuneração)\n• Suspensão dos direitos políticos\n• Proibição de contratar com o poder público\n\n**Como Evitar:**\n• Capacitação contínua da equipe\n• Consultoria jurídica especializada\n• Acompanhamento do CACS ativo\n• Transparência nas aplicações"
+          }
+        ]
+      },
+
+      // Indicadores e Metas Educacionais
+      indicadores_educacionais: {
+        keywords: ['ideb', 'metas educacionais', 'qualidade educação', 'indicadores desempenho', 'avaliação educacional'],
+        responses: [
+          {
+            question: "Como interpretar os resultados do IDEB?",
+            answer: "**Interpretação do IDEB (Índice de Desenvolvimento da Educação Básica):**\n\n**Composição do IDEB:**\n• Fluxo escolar (aprovação/reprovação/abandono)\n• Desempenho (Prova Brasil/SAEB)\n• Escala: 0 a 10 (média OCDE: 6,0)\n\n**Metas Nacionais 2025:**\n• Anos iniciais (1º-5º ano): 6,0\n• Anos finais (6º-9º ano): 5,5\n• Ensino médio: 5,2\n\n**Análise dos Resultados:**\n**6,0+ = Excelente** 📈\n• Padrão internacional\n• Qualidade educacional elevada\n\n**4,5-5,9 = Bom** 📊\n• Próximo das metas\n• Melhorias pontuais necessárias\n\n**3,0-4,4 = Regular** ⚠️\n• Necessita intervenção\n• Plano de melhoria urgente\n\n**Abaixo 3,0 = Crítico** 🚨\n• Situação de emergência educacional\n• Ações imediatas obrigatórias"
+          },
+          {
+            question: "Qual a relação entre investimento financeiro e resultados educacionais?",
+            answer: "**Relação Investimento × Resultados Educacionais:**\n\n**Investimento Atual do Senhor Secretário:**\n• Total: R$ 980.450\n• Por aluno/mês: ~R$ 815 (estimativa)\n• CAQi mínimo: R$ 650/aluno/mês\n\n**Áreas de Impacto Direto:**\n**1. Remuneração Docente (70% FUNDEB)**\n• Atração de melhores profissionais\n• Redução de rotatividade\n• Impacto no IDEB: +0,5 pontos\n\n**2. Infraestrutura (PDDE/PNAE)**\n• Ambiente adequado de aprendizagem\n• Alimentação de qualidade\n• Impacto no IDEB: +0,3 pontos\n\n**3. Formação Continuada**\n• Metodologias modernas\n• Capacitação pedagógica\n• Impacto no IDEB: +0,4 pontos\n\n**ROI Educacional:**\n• Cada R$ 100 investidos adequadamente\n• Potencial melhoria: 0,1 ponto no IDEB\n• Retorno social: R$ 7 para cada R$ 1 investido\n\n**Recomendações Estratégicas:**\n• Foco na formação de professores\n• Tecnologia educacional\n• Acompanhamento pedagógico individualizado"
+          }
+        ]
       }
     };
 
