@@ -199,6 +199,54 @@ frontend:
           agent: "main"
           comment: "Garantido que getCurrentGreeting sempre use 'Sr. Oriovaldo' independente do usuário logado"
 
+  - task: "Tela de Alertas completa seguindo design fornecido"
+    implemented: true
+    working: true
+    file: "components/Alertas.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Implementada tela de Alertas completa seguindo design fornecido: cards de estatísticas (Total, Urgentes, Sem Docs, Duplicados), filtros funcionais, lista detalhada de situações com prestação de contas, documentação e duplicatas, sistema de temas integrado"
+
+  - task: "Separação Alertas e Notificações com ícone sino"
+    implemented: true
+    working: true
+    file: "components/TopNavigation.jsx, components/Notificacoes.jsx, components/ChatInterface.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Criada separação entre Alertas e Notificações: Alertas usa ícone AlertTriangle, Notificações usa ícone Bell (sino). Implementado componente Notificacoes.jsx completo com estatísticas, filtros e ações (marcar como lida, excluir)"
+
+  - task: "Responsividade básica no chat"
+    implemented: true
+    working: true
+    file: "components/MainChatArea.jsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Implementada responsividade básica: layout flex adaptativo, elementos empilhados em mobile, botões e textos responsivos, watermarks adaptáveis, input reorganizado para mobile com ordenação adequada"
+
+  - task: "Botão Análise com Aylla no Meu Painel"
+    implemented: true
+    working: true
+    file: "components/MeuPainel.jsx, components/ChatInterface.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Adicionado botão 'Análise com Aylla' no Meu Painel que gera prompt detalhado com dados financeiros (FUNDEB, PDDE, PNAE, prazos, recursos) e navega para chat automaticamente enviando análise contextual"
+
   - task: "Alterar saudação para Senhor Secretário"
     implemented: true
     working: true
