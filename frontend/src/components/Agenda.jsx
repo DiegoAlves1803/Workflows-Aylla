@@ -346,14 +346,15 @@ const Agenda = () => {
             }}
           >
             {/* Calendar Header */}
-            <div className="grid grid-cols-7 border-b" style={{ borderColor: currentTheme.border }}>
+            <div className="grid grid-cols-7 border-b-2" style={{ borderColor: isDark ? '#475569' : '#475569' }}>
               {dayNames.map((dayName) => (
                 <div
                   key={dayName}
-                  className="p-4 text-center text-sm font-['Lato'] font-medium transition-colors duration-300"
+                  className="p-4 text-center text-sm font-['Lato'] font-medium transition-colors duration-300 border-r"
                   style={{ 
                     backgroundColor: isDark ? '#374151' : '#64748B',
-                    color: 'white'
+                    color: 'white',
+                    borderRightColor: isDark ? '#475569' : '#475569'
                   }}
                 >
                   {dayName}
