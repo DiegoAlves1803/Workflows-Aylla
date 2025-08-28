@@ -157,7 +157,7 @@ Por favor, forneça insights sobre:
             className="font-['Lato'] transition-colors duration-300"
             style={{ color: currentTheme.text.tertiary }}
           >
-            Visão geral dos recursos educacionais do Senhor Secretário
+            Visão geral dos recursos educacionais do Município Teste (valores fictícios)
           </p>
         </div>
         
