@@ -327,105 +327,256 @@ const Agenda = () => {
         </div>
       </div>
 
-      {/* Calendar */}
-      <div 
-        className="rounded-2xl border transition-all duration-300"
-        style={{
-          backgroundColor: currentTheme.cardBg,
-          borderColor: currentTheme.border,
-          boxShadow: currentTheme.shadow
-        }}
-      >
-        {/* Calendar Header */}
-        <div className="grid grid-cols-7 border-b" style={{ borderColor: currentTheme.border }}>
-          {dayNames.map((dayName) => (
-            <div
-              key={dayName}
-              className="p-4 text-center text-sm font-['Lato'] font-medium transition-colors duration-300"
-              style={{ 
-                backgroundColor: isDark ? '#374151' : '#64748B',
-                color: 'white'
-              }}
-            >
-              {dayName}
+      {/* Main Content Layout */}
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        {/* Calendar - 3/4 width */}
+        <div className="lg:col-span-3">
+          <div 
+            className="rounded-2xl border transition-all duration-300"
+            style={{
+              backgroundColor: currentTheme.cardBg,
+              borderColor: currentTheme.border,
+              boxShadow: currentTheme.shadow
+            }}
+          >
+            {/* Calendar Header */}
+            <div className="grid grid-cols-7 border-b" style={{ borderColor: currentTheme.border }}>
+              {dayNames.map((dayName) => (
+                <div
+                  key={dayName}
+                  className="p-4 text-center text-sm font-['Lato'] font-medium transition-colors duration-300"
+                  style={{ 
+                    backgroundColor: isDark ? '#374151' : '#64748B',
+                    color: 'white'
+                  }}
+                >
+                  {dayName}
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
 
-        {/* Calendar Body */}
-        <div className="grid grid-cols-7">
-          {getDaysInMonth(currentDate).map((dayObj, index) => {
-            const dayTasks = getTasksForDate(dayObj.day, dayObj.isCurrentMonth);
-            const visibleTasks = dayTasks.slice(0, 2);
-            const extraTasks = dayTasks.length - visibleTasks.length;
-            
-            return (
-              <div
-                key={index}
-                className={`min-h-[120px] p-2 border-r border-b transition-all duration-200 relative ${
-                  dayObj.isCurrentMonth ? 'hover:bg-opacity-50' : 'opacity-40'
-                }`}
-                style={{ 
-                  borderColor: currentTheme.border,
-                  backgroundColor: dayObj.isToday 
-                    ? (isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)')
-                    : 'transparent'
-                }}
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <span 
-                    className={`text-sm font-['Lato'] ${
-                      dayObj.isToday ? 'font-bold' : 'font-normal'
-                    } transition-colors duration-300`}
+            {/* Calendar Body */}
+            <div className="grid grid-cols-7">
+              {getDaysInMonth(currentDate).map((dayObj, index) => {
+                const dayTasks = getTasksForDate(dayObj.day, dayObj.isCurrentMonth);
+                const visibleTasks = dayTasks.slice(0, 2);
+                const extraTasks = dayTasks.length - visibleTasks.length;
+                
+                return (
+                  <div
+                    key={index}
+                    className={`min-h-[120px] p-2 border-r border-b transition-all duration-200 relative ${
+                      dayObj.isCurrentMonth ? 'hover:bg-opacity-50' : 'opacity-40'
+                    }`}
                     style={{ 
-                      color: dayObj.isToday 
-                        ? 'var(--Brand-primary)' 
-                        : (dayObj.isCurrentMonth ? currentTheme.text.primary : currentTheme.text.tertiary)
+                      borderColor: currentTheme.border,
+                      backgroundColor: dayObj.isToday 
+                        ? (isDark ? 'rgba(7, 201, 253, 0.1)' : 'rgba(8, 33, 93, 0.05)')
+                        : 'transparent'
                     }}
                   >
-                    {dayObj.day}
-                  </span>
-                  
-                  {dayObj.isToday && (
-                    <div 
-                      className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white"
-                      style={{ backgroundColor: 'var(--Brand-primary)' }}
-                    >
-                      {dayObj.day}
+                    <div className="flex items-center justify-between mb-2">
+                      <span 
+                        className={`text-sm font-['Lato'] ${
+                          dayObj.isToday ? 'font-bold' : 'font-normal'
+                        } transition-colors duration-300`}
+                        style={{ 
+                          color: dayObj.isToday 
+                            ? 'var(--Brand-primary)' 
+                            : (dayObj.isCurrentMonth ? currentTheme.text.primary : currentTheme.text.tertiary)
+                        }}
+                      >
+                        {dayObj.day}
+                      </span>
+                      
+                      {dayObj.isToday && (
+                        <div 
+                          className="w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold text-white"
+                          style={{ backgroundColor: 'var(--Brand-primary)' }}
+                        >
+                          {dayObj.day}
+                        </div>
+                      )}
                     </div>
-                  )}
-                </div>
 
-                {/* Tasks for this day */}
-                <div className="space-y-1">
-                  {visibleTasks.map((task, taskIndex) => (
-                    <div
-                      key={taskIndex}
-                      className="text-xs p-1 rounded font-['Lato'] truncate transition-all duration-200 hover:scale-105"
-                      style={{
-                        backgroundColor: task.color,
-                        color: 'white'
-                      }}
-                    >
-                      {task.name} {task.time}
+                    {/* Tasks for this day */}
+                    <div className="space-y-1">
+                      {visibleTasks.map((task, taskIndex) => (
+                        <div
+                          key={taskIndex}
+                          className="text-xs p-1 rounded font-['Lato'] truncate transition-all duration-200 hover:scale-105 flex items-center gap-1"
+                          style={{
+                            backgroundColor: task.color,
+                            color: 'white'
+                          }}
+                        >
+                          {task.priority === 'urgent' && (
+                            <AlertTriangle size={10} />
+                          )}
+                          <span>{task.name} {task.time}</span>
+                        </div>
+                      ))}
+                      
+                      {extraTasks > 0 && (
+                        <div 
+                          className="text-xs p-1 rounded font-['Lato'] text-center transition-colors duration-300"
+                          style={{
+                            backgroundColor: isDark ? 'rgba(156, 163, 175, 0.2)' : 'rgba(156, 163, 175, 0.1)',
+                            color: currentTheme.text.secondary
+                          }}
+                        >
+                          +{extraTasks} itens
+                        </div>
+                      )}
                     </div>
-                  ))}
-                  
-                  {extraTasks > 0 && (
-                    <div 
-                      className="text-xs p-1 rounded font-['Lato'] text-center transition-colors duration-300"
-                      style={{
-                        backgroundColor: isDark ? 'rgba(156, 163, 175, 0.2)' : 'rgba(156, 163, 175, 0.1)',
-                        color: currentTheme.text.secondary
-                      }}
-                    >
-                      +{extraTasks} itens
-                    </div>
-                  )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+
+        {/* Historical Commitments Sidebar - 1/4 width */}
+        <div className="lg:col-span-1">
+          <div 
+            className="rounded-2xl border transition-all duration-300 sticky top-32"
+            style={{
+              backgroundColor: currentTheme.cardBg,
+              borderColor: currentTheme.border,
+              boxShadow: currentTheme.shadow
+            }}
+          >
+            {/* Sidebar Header */}
+            <div className="p-4 border-b" style={{ borderColor: currentTheme.border }}>
+              <h3 
+                className="font-['Lexend'] font-semibold text-lg mb-2 transition-colors duration-300"
+                style={{ color: currentTheme.text.primary }}
+              >
+                Histórico de Compromissos
+              </h3>
+              <p 
+                className="text-xs font-['Lato'] transition-colors duration-300"
+                style={{ color: currentTheme.text.tertiary }}
+              >
+                {sortedTasks.length} compromissos registrados
+              </p>
+            </div>
+
+            {/* Tasks List */}
+            <div className="max-h-[600px] overflow-y-auto">
+              {sortedTasks.length === 0 ? (
+                <div className="p-6 text-center">
+                  <Calendar 
+                    size={32} 
+                    className="mx-auto mb-2 opacity-50"
+                    style={{ color: currentTheme.text.tertiary }}
+                  />
+                  <p 
+                    className="text-sm font-['Lato']"
+                    style={{ color: currentTheme.text.tertiary }}
+                  >
+                    Nenhum compromisso agendado
+                  </p>
                 </div>
-              </div>
-            );
-          })}
+              ) : (
+                sortedTasks.map((task) => (
+                  <div
+                    key={task.id}
+                    className="p-3 border-b transition-all duration-200 hover:bg-opacity-50 cursor-pointer"
+                    style={{
+                      borderColor: currentTheme.border,
+                      backgroundColor: 'transparent'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = isDark 
+                        ? 'rgba(7, 201, 253, 0.05)' 
+                        : 'rgba(8, 33, 93, 0.02)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = 'transparent';
+                    }}
+                  >
+                    {/* Task Header */}
+                    <div className="flex items-start justify-between mb-2">
+                      <div className="flex items-center gap-2">
+                        <div 
+                          className="w-3 h-3 rounded-full"
+                          style={{ backgroundColor: task.color }}
+                        />
+                        <h4 
+                          className="text-sm font-['Lato'] font-semibold transition-colors duration-300 truncate"
+                          style={{ color: currentTheme.text.primary }}
+                        >
+                          {task.name}
+                        </h4>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        {getPriorityIcon(task.priority)}
+                        {getStatusIcon(task.status)}
+                      </div>
+                    </div>
+
+                    {/* Task Details */}
+                    <div className="space-y-1">
+                      <div className="flex items-center justify-between">
+                        <span 
+                          className="text-xs font-['Lato'] transition-colors duration-300"
+                          style={{ color: currentTheme.text.secondary }}
+                        >
+                          📅 {task.date} • ⏰ {task.time}
+                        </span>
+                      </div>
+                      
+                      {task.description && (
+                        <p 
+                          className="text-xs font-['Lato'] leading-tight transition-colors duration-300"
+                          style={{ color: currentTheme.text.tertiary }}
+                        >
+                          {task.description}
+                        </p>
+                      )}
+
+                      <div className="flex items-center gap-3 mt-2">
+                        <span 
+                          className={`text-xs px-2 py-1 rounded-full font-medium ${
+                            task.priority === 'urgent' ? 'text-red-700' :
+                            task.priority === 'high' ? 'text-orange-700' :
+                            task.priority === 'medium' ? 'text-yellow-700' :
+                            'text-green-700'
+                          }`}
+                          style={{
+                            backgroundColor: 
+                              task.priority === 'urgent' ? '#FEE2E2' :
+                              task.priority === 'high' ? '#FED7AA' :
+                              task.priority === 'medium' ? '#FEF3C7' :
+                              '#D1FAE5'
+                          }}
+                        >
+                          {getPriorityLabel(task.priority)}
+                        </span>
+                        
+                        <span 
+                          className={`text-xs px-2 py-1 rounded-full font-medium ${
+                            task.status === 'completed' ? 'text-green-700' :
+                            task.status === 'pending' ? 'text-yellow-700' :
+                            'text-red-700'
+                          }`}
+                          style={{
+                            backgroundColor: 
+                              task.status === 'completed' ? '#D1FAE5' :
+                              task.status === 'pending' ? '#FEF3C7' :
+                              '#FEE2E2'
+                          }}
+                        >
+                          {getStatusLabel(task.status)}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              )}
+            </div>
+          </div>
         </div>
       </div>
 
