@@ -6,6 +6,83 @@ const MeuPainel = ({ setActiveTab }) => {
   const { isDark, colors } = useTheme();
   const currentTheme = isDark ? colors.dark : colors.light;
 
+  const financialSummary = {
+    totalResources: 1250000, // R$ 1.250.000 (valor fictício)
+    executed: 862500, // R$ 862.500 - 69% executado (valor fictício)
+    available: 387500, // R$ 387.500 - 31% disponível (valor fictício)
+    programs: {
+      fundeb: { value: 950000, percentage: 76 }, // R$ 950.000 (valor fictício)
+      pdde: { value: 180000, percentage: 14.4 }, // R$ 180.000 (valor fictício) 
+      pnae: { value: 120000, percentage: 9.6 } // R$ 120.000 (valor fictício)
+    }
+  };
+
+  const detailedPrograms = [
+    {
+      id: 1,
+      name: "FUNDEB - Fundo de Desenvolvimento da Educação Básica",
+      allocated: 950000, // R$ 950.000 (valor fictício)
+      executed: 665000, // R$ 665.000 (valor fictício)
+      available: 285000, // R$ 285.000 (valor fictício)
+      percentage: 70,
+      status: "Em dia",
+      dueDate: "15/09/2025",
+      description: "Recursos para remuneração e desenvolvimento da educação básica",
+      color: "#22C55E"
+    },
+    {
+      id: 2,
+      name: "PDDE - Programa Dinheiro Direto na Escola",
+      allocated: 180000, // R$ 180.000 (valor fictício)
+      executed: 126000, // R$ 126.000 (valor fictício)
+      available: 54000, // R$ 54.000 (valor fictício)
+      percentage: 70,
+      status: "Atenção",
+      dueDate: "08/09/2025",
+      description: "Recursos diretos para manutenção e melhoria das escolas",
+      color: "#F59E0B"
+    },
+    {
+      id: 3,
+      name: "PNAE - Programa Nacional de Alimentação Escolar",
+      allocated: 120000, // R$ 120.000 (valor fictício)
+      executed: 71500, // R$ 71.500 (valor fictício) 
+      available: 48500, // R$ 48.500 (valor fictício)
+      percentage: 60,
+      status: "Em dia",
+      dueDate: "22/09/2025",
+      description: "Recursos para alimentação escolar de qualidade",
+      color: "#3B82F6"
+    }
+  ];
+
+  const pendingItems = [
+    {
+      id: 1,
+      title: "Prestação de Contas PDDE",
+      description: "Escola Municipal João Silva - Prazo crítico",
+      daysLeft: 8,
+      priority: "Alta",
+      type: "deadline"
+    },
+    {
+      id: 2,
+      title: "Relatório FUNDEB Mensal",
+      description: "Relatório de execução referente a julho/2025",
+      daysLeft: 15,
+      priority: "Média", 
+      type: "report"
+    },
+    {
+      id: 3,
+      title: "Análise Nutricional PNAE",
+      description: "Avaliação dos cardápios do 2º semestre",
+      daysLeft: 22,
+      priority: "Baixa",
+      type: "analysis"
+    }
+  ];
+
   const handleAnalyzeWithAylla = () => {
     // Generate analysis prompt based on current dashboard data
     const analysisPrompt = `Aylla, por favor faça uma análise detalhada dos resultados financeiros do Senhor Secretário baseado nos dados do painel:
