@@ -22,35 +22,81 @@ const Agenda = () => {
       name: "Reunião 1",
       time: "09:00",
       date: "27/08/2025",
-      color: "#22C55E"
+      color: "#22C55E",
+      priority: "medium",
+      status: "completed",
+      description: "Reunião com diretores sobre planejamento semestral"
     },
     {
       id: 2,
       name: "Reunião 2", 
       time: "09:30",
       date: "27/08/2025",
-      color: "#22C55E"
+      color: "#22C55E",
+      priority: "high",
+      status: "pending",
+      description: "Conselho Municipal de Educação - Orçamento 2025"
     },
     {
       id: 3,
       name: "Análise FUNDEB",
       time: "14:00",
       date: "27/08/2025",
-      color: "#3B82F6"
+      color: "#3B82F6",
+      priority: "high",
+      status: "pending",
+      description: "Análise trimestral dos recursos FUNDEB"
     },
     {
       id: 4,
       name: "Prestação PDDE",
       time: "15:30",
       date: "27/08/2025",
-      color: "#F59E0B"
+      color: "#F59E0B",
+      priority: "urgent",
+      status: "pending",
+      description: "Urgente: Prestação de contas vence em 8 dias"
     },
     {
       id: 5,
       name: "Relatório Mensal",
       time: "16:00",
       date: "27/08/2025",
-      color: "#8B5CF6"
+      color: "#8B5CF6",
+      priority: "low",
+      status: "completed",
+      description: "Relatório de atividades de julho"
+    },
+    // Compromissos históricos
+    {
+      id: 6,
+      name: "Visita EMEF João Silva",
+      time: "10:00",
+      date: "25/08/2025",
+      color: "#06B6D4",
+      priority: "medium",
+      status: "completed",
+      description: "Inspeção de infraestrutura concluída"
+    },
+    {
+      id: 7,
+      name: "Formação de Professores",
+      time: "14:30",
+      date: "24/08/2025",
+      color: "#8B5CF6",
+      priority: "high",
+      status: "completed",
+      description: "Workshop sobre metodologias ativas"
+    },
+    {
+      id: 8,
+      name: "Reunião PNAE",
+      time: "11:00",
+      date: "23/08/2025",
+      color: "#EF4444",
+      priority: "medium",
+      status: "cancelled",
+      description: "Cancelada - Reagendada para setembro"
     }
   ]);
 
