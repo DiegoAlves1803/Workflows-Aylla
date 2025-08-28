@@ -105,8 +105,9 @@ const TopNavigation = ({ activeTab, setActiveTab }) => {
                 borderColor: 'var(--Border-primary)',
                 color: 'var(--Brand-primary)'
               }}
+              title="Notificações"
             >
-              <Settings size={16} />
+              <Bell size={16} />
             </div>
             
             {/* Logout Button */}
