@@ -84,7 +84,7 @@ const ChatMessages = ({ messages, isLoading }) => {
                 }}
               >
                 <span className="text-white text-xs font-semibold font-['Inter']">
-                  SO
+                  SS
                 </span>
               </div>
             )}
