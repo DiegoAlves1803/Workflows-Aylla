@@ -7,6 +7,57 @@ const TopNavigation = ({ activeTab, setActiveTab }) => {
   const { isDark, toggleTheme, colors } = useTheme();
   const { user, logout } = useAuth();
   const currentTheme = isDark ? colors.dark : colors.light;
+  const [showNotifications, setShowNotifications] = useState(false);
+  
+  const notifications = [
+    {
+      id: 1,
+      type: "warning",
+      title: "Prazo PDDE Crítico",
+      message: "Prestação de contas do PDDE vence em 8 dias",
+      time: "2 horas atrás",
+      priority: "high",
+      read: false
+    },
+    {
+      id: 2,
+      type: "success", 
+      title: "Repasse FUNDEB Confirmado",
+      message: "Novo repasse de R$ 285.000 confirmado para setembro",
+      time: "4 horas atrás",
+      priority: "normal",
+      read: false
+    },
+    {
+      id: 3,
+      type: "info",
+      title: "Relatório Mensal Disponível",
+      message: "Relatório de execução de julho/2025 pronto para análise",
+      time: "1 dia atrás",
+      priority: "normal", 
+      read: true
+    },
+    {
+      id: 4,
+      type: "warning",
+      title: "Documentação Pendente",
+      message: "3 escolas com documentação PNAE pendente",
+      time: "2 dias atrás",
+      priority: "medium",
+      read: true
+    }
+  ];
+  
+  const unreadCount = notifications.filter(n => !n.read).length;
+  
+  const getNotificationIcon = (type) => {
+    switch(type) {
+      case 'success': return '✅';
+      case 'warning': return '⚠️';
+      case 'error': return '❌';
+      default: return 'ℹ️';
+    }
+  };
   
   const tabs = [
     { name: "Chat", icon: MessageSquare },
