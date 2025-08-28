@@ -453,7 +453,7 @@ const Agenda = () => {
                   Cor da tarefa
                 </label>
                 <div className="flex gap-3">
-                  {colors.map((color) => (
+                  {colorPalette.map((color) => (
                     <button
                       key={color}
                       onClick={() => setNewTask({ ...newTask, color })}
