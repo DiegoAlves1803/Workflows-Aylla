@@ -92,7 +92,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const getCurrentGreeting = () => {
-    const userName = "Sr. Oriovaldo"; // Sempre usar Sr. Oriovaldo como padrão
+    const userName = "Senhor Secretário"; // Alterado para Senhor Secretário
     const hour = new Date().getHours();
     
     let timeGreeting;
