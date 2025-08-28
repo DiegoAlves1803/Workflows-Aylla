@@ -61,14 +61,34 @@ Por favor, forneça insights sobre:
 
   return (
     <div className="pt-32 px-8 max-w-7xl mx-auto">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 
-          className="text-3xl font-['Lexend'] font-medium mb-2 transition-colors duration-300"
-          style={{ color: currentTheme.text.primary }}
+      {/* Header with Analysis Button */}
+      <div className="mb-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div>
+          <h1 
+            className="text-3xl font-['Lexend'] font-medium mb-2 transition-colors duration-300"
+            style={{ color: currentTheme.text.primary }}
+          >
+            Meu Painel
+          </h1>
+          <p 
+            className="font-['Lato'] transition-colors duration-300"
+            style={{ color: currentTheme.text.tertiary }}
+          >
+            Visão geral dos recursos educacionais do Senhor Secretário
+          </p>
+        </div>
+        
+        {/* Analyze with Aylla Button */}
+        <button
+          onClick={handleAnalyzeWithAylla}
+          className="px-6 py-3 rounded-xl font-['Lato'] font-medium text-white transition-all duration-200 hover:shadow-lg hover:scale-105 flex items-center gap-2"
+          style={{
+            background: `linear-gradient(135deg, var(--Brand-primary) 0%, var(--Brand-secondary) 100%)`
+          }}
         >
-          Visão Geral
-        </h1>
+          <MessageSquare size={20} />
+          Análise com Aylla
+        </button>
       </div>
 
       {/* Resumo Financeiro */}
