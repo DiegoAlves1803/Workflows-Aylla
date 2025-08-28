@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import ChatInterface from "./components/ChatInterface";
+import LandingPage from "./components/LandingPage";
 import LoginPage from "./components/LoginPage";
 
 // Protected Route Component
@@ -24,6 +25,10 @@ function AppRoutes() {
       <BrowserRouter>
         <Routes>
           <Route 
+            path="/" 
+            element={<LandingPage />}
+          />
+          <Route 
             path="/login" 
             element={
               <PublicRoute>
@@ -39,7 +44,6 @@ function AppRoutes() {
               </ProtectedRoute>
             } 
           />
-          <Route path="/" element={<Navigate to="/login" />} />
         </Routes>
       </BrowserRouter>
     </div>
