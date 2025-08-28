@@ -130,11 +130,49 @@ const LandingPage = () => {
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className={`p-2 rounded-full transition-all duration-200 hover:scale-110 ${
-                isDark ? 'bg-[#1E293B] hover:bg-[#334155]' : 'bg-[#F1F5F9] hover:bg-[#E2E8F0]'
+              className={`p-2 rounded-full border transition-all duration-200 hover:scale-110 ${
+                isDark ? 'border-[#334155] hover:border-[#07C9FD]' : 'border-[#E2E8F0] hover:border-[#08215D]'
               }`}
+              style={{
+                backgroundColor: isDark ? 'rgba(51, 65, 85, 0.3)' : 'rgba(248, 250, 252, 0.8)'
+              }}
+              title={isDark ? 'Alternar para tema claro' : 'Alternar para tema escuro'}
             >
-              {isDark ? '☀️' : '🌙'}
+              {isDark ? (
+                <svg 
+                  width="20" 
+                  height="20" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="#FCD34D" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                >
+                  <circle cx="12" cy="12" r="5"/>
+                  <path d="M12 1v2"/>
+                  <path d="M12 21v2"/>
+                  <path d="M4.22 4.22l1.42 1.42"/>
+                  <path d="M18.36 18.36l1.42 1.42"/>
+                  <path d="M1 12h2"/>
+                  <path d="M21 12h2"/>
+                  <path d="M4.22 19.78l1.42-1.42"/>
+                  <path d="M18.36 5.64l1.42-1.42"/>
+                </svg>
+              ) : (
+                <svg 
+                  width="20" 
+                  height="20" 
+                  viewBox="0 0 24 24" 
+                  fill="none" 
+                  stroke="#475569" 
+                  strokeWidth="2" 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round"
+                >
+                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                </svg>
+              )}
             </button>
 
             {/* Login Button */}
@@ -143,7 +181,19 @@ const LandingPage = () => {
               className="bg-[#08215D] hover:bg-[#061A4F] text-white px-6 py-2 rounded-full font-['Lato'] font-medium text-sm transition-all duration-200 hover:shadow-lg hover:scale-105 flex items-center gap-2"
             >
               Login
-              <User size={16} />
+              <svg 
+                width="16" 
+                height="16" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              >
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
             </button>
           </div>
         </div>
