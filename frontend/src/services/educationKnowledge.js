@@ -2,7 +2,47 @@
 export class EducationKnowledge {
   constructor() {
     this.knowledgeBase = {
-      // PDDE - Programa Dinheiro Direto na Escola
+      // Análises Financeiras Educacionais
+      analise_financeira: {
+        keywords: ['análise financeira', 'análise de recursos', 'situação financeira', 'execução orçamentária', 'recursos educacionais', 'orçamento educação'],
+        responses: [
+          {
+            question: "Como fazer análise da execução orçamentária educacional?",
+            answer: "Para analisar a execução orçamentária da educação:\n\n1. **Identificar as fontes de recursos:**\n• FUNDEB (Fundo de Desenvolvimento da Educação Básica)\n• PDDE (Programa Dinheiro Direto na Escola)\n• PNAE (Programa Nacional de Alimentação Escolar)\n• Recursos próprios do município\n\n2. **Verificar percentuais de execução:**\n• Meta: 77% de execução atual está dentro do esperado\n• Recursos disponíveis: 23% ainda podem ser utilizados\n• Acompanhar prazos de prestação de contas\n\n3. **Indicadores importantes:**\n• Taxa de execução por programa\n• Cumprimento de prazos\n• Regularidade documental\n• Eficiência na aplicação"
+          },
+          {
+            question: "Quais são os principais indicadores financeiros educacionais?",
+            answer: "**Indicadores Essenciais para Gestão Financeira Educacional:**\n\n**1. Execução Orçamentária:**\n• FUNDEB: 87% dos recursos totais\n• PDDE: 9% dos recursos totais\n• PNAE: 4% dos recursos totais\n\n**2. Performance de Execução:**\n• 77% executado (Meta: 75-85%)\n• 23% disponível para aplicação\n\n**3. Gestão de Prazos:**\n• FUNDEB: 15 dias para vencimento\n• PDDE: 8 dias para vencimento (ATENÇÃO!)\n• PNAE: 22 dias para vencimento\n\n**4. Recomendações:**\n• Priorizar prestação PDDE (prazo crítico)\n• Otimizar execução dos 23% restantes\n• Manter documentação em dia"
+          },
+          {
+            question: "Como otimizar a aplicação dos recursos educacionais?",
+            answer: "**Estratégias para Otimização de Recursos Educacionais:**\n\n**1. Planejamento Estratégico:**\n• Priorizar gastos por impacto educacional\n• Alinhar com metas do PNE e IDEB\n• Considerar sazonalidade escolar\n\n**2. FUNDEB (R$ 854.300):**\n• 70% mínimo em remuneração de profissionais\n• 30% em outras despesas de MDE\n• Foco em qualificação docente\n\n**3. PDDE (R$ 89.650):**\n• 80% custeio: materiais, manutenção\n• 20% capital: equipamentos permanentes\n• Priorizar necessidades urgentes das escolas\n\n**4. PNAE (R$ 36.500):**\n• 30% mínimo em agricultura familiar\n• Cardápios nutricionalmente adequados\n• Controle de qualidade rigoroso"
+          },
+          {
+            question: "Como interpretar os dados do painel financeiro educacional?",
+            answer: "**Interpretação do Dashboard Financeiro Educacional:**\n\n**Recursos Totais: R$ 980.450**\n\n**Distribuição por Programa:**\n• FUNDEB: R$ 854.300 (87%) - Principal fonte\n• PDDE: R$ 89.650 (9%) - Autonomia escolar\n• PNAE: R$ 36.500 (4%) - Alimentação escolar\n\n**Status de Execução:**\n• Executado: R$ 756.234 (77%)\n• Disponível: R$ 224.216 (23%)\n\n**Análise da Situação:**\n✅ **Pontos Positivos:**\n• Taxa de execução adequada (77%)\n• Boa diversificação de fontes\n• Recursos ainda disponíveis para aplicação\n\n⚠️ **Pontos de Atenção:**\n• PDDE com prazo crítico (8 dias)\n• Necessidade de acelerar execução\n• Documentação deve estar em dia"
+          }
+        ]
+      },
+
+      // PDDE Expandido - Conhecimento Avançado
+      pdde_avancado: {
+        keywords: ['unidade executora pdde', 'prestação pdde detalhada', 'problemas pdde', 'documentos pdde', 'execução pdde'],
+        responses: [
+          {
+            question: "Quais documentos são obrigatórios na prestação de contas do PDDE?",
+            answer: "**Documentos Obrigatórios para Prestação de Contas PDDE:**\n\n**1. Demonstrativo da Execução da Receita e Despesa (DERD)**\n• Modelo disponível no PDDE Interativo\n• Assinado pelo presidente da UEX\n• Valores devem coincidir com extratos\n\n**2. Relação de Bens Adquiridos ou Produzidos**\n• Todos os bens permanentes\n• Número do patrimônio quando aplicável\n• Descrição detalhada dos itens\n\n**3. Extratos Bancários**\n• Conta corrente específica do PDDE\n• Do recebimento até a aplicação total\n• Todos os meses com movimentação\n\n**4. Conciliação Bancária**\n• Última movimentação da conta\n• Demonstrar saldo zero\n\n**5. Comprovantes de Despesas**\n• Notas fiscais em nome da UEX\n• Recibos de pagamento\n• Comprovantes de transferência bancária"
+          },
+          {
+            question: "Como resolver problemas na prestação de contas do PDDE?",
+            answer: "**Soluções para Problemas Comuns no PDDE:**\n\n**Problema: CNPJ Irregular**\n• Regularizar na Receita Federal\n• Atualizar dados no PDDE Interativo\n• Solicitar nova certidão de regularidade\n\n**Problema: Notas Fiscais Inadequadas**\n• Verificar se estão em nome da UEX\n• CNPJ da escola deve estar correto\n• Produtos devem ser elegíveis pelo programa\n\n**Problema: Prestação em Atraso**\n• Justificar o atraso formalmente\n• Enviar documentação completa\n• Aguardar análise do FNDE\n\n**Problema: Saldo Remanescente**\n• Devolver via GRU código 153173\n• Informar no PDDE Interativo\n• Justificar a não execução total\n\n**Problema: Duplicação de Registros**\n• Identificar todas as ocorrências\n• Cancelar registros duplicados\n• Manter apenas o correto"
+          },
+          {
+            question: "Qual a diferença entre PDDE Básico e PDDE Qualidade?",
+            answer: "**Diferenças entre PDDE Básico e PDDE Qualidade:**\n\n**PDDE Básico:**\n• Todas as escolas públicas são elegíveis\n• Recursos para manutenção geral\n• 80% custeio / 20% capital\n• Prestação de contas padrão\n• Valores conforme número de alunos\n\n**PDDE Qualidade:**\n• Escolas com baixo IDEB\n• Foco específico na alfabetização\n• Recursos extras para materiais pedagógicos\n• Anos iniciais do ensino fundamental\n• Acompanhamento diferenciado\n\n**Critérios PDDE Qualidade:**\n• IDEB abaixo da meta projetada\n• Anos iniciais (1º ao 5º ano)\n• Escolas urbanas prioritárias\n\n**Aplicação dos Recursos:**\n• Material pedagógico específico\n• Jogos educativos para alfabetização\n• Livros de literatura infantil\n• Recursos para reforço escolar\n• Materiais de apoio ao professor"
+          }
+        ]
+      },
       pdde: {
         keywords: ['pdde', 'dinheiro direto', 'programa dinheiro', 'recursos escola', 'fundos escola', 'unidade executora', 'adesão pdde'],
         responses: [
