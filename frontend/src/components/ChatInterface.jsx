@@ -24,7 +24,7 @@ const ChatInterface = () => {
       "Chat": <MainChatArea key="main-chat" />,
       "Meu Painel": <MeuPainel key="meu-painel" />,
       "Agenda": <Agenda key="agenda" />,
-      "Alertas": <Alertas key="alertas" />,
+      "Alertas": <Notificacoes key="alertas" />,
       "Documentos": <Documentos key="documentos" />
     };
     
