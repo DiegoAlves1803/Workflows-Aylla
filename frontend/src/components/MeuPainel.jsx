@@ -1,5 +1,5 @@
 import React from "react";
-import { Clock, TrendingUp } from "lucide-react";
+import { Clock, TrendingUp, MessageSquare } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 
 const MeuPainel = () => {
