@@ -4,6 +4,7 @@ import TopNavigation from "./TopNavigation";
 import MainChatArea from "./MainChatArea";
 import MeuPainel from "./MeuPainel";
 import Agenda from "./Agenda";
+import Alertas from "./Alertas";
 import Notificacoes from "./Notificacoes";
 import Documentos from "./Documentos";
 import { mockData } from "../data/mockData";
