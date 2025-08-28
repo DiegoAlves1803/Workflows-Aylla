@@ -199,7 +199,43 @@ frontend:
           agent: "main"
           comment: "Garantido que getCurrentGreeting sempre use 'Sr. Oriovaldo' independente do usuário logado"
 
-  - task: "Tela de Alertas completa seguindo design fornecido"
+  - task: "Município alterado para 'Município Teste'"
+    implemented: true
+    working: true
+    file: "contexts/AuthContext.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Alterado município de 'Município de Oriovaldo' para 'Município Teste' no AuthContext, aparece na saudação e informações do usuário"
+
+  - task: "Valores fictícios no Meu Painel"
+    implemented: true
+    working: true
+    file: "components/MeuPainel.jsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Atualizados todos os valores para fictícios: Total R$ 1.250.000, FUNDEB R$ 950.000 (76%), PDDE R$ 180.000 (14,4%), PNAE R$ 120.000 (9,6%), 69% executado, 31% disponível, datas 2025"
+
+  - task: "Funcionalidade ícone notificação"
+    implemented: true
+    working: true
+    file: "components/TopNavigation.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: true
+          agent: "main"
+          comment: "Implementado dropdown completo de notificações: badge com contagem não lidas (2), dropdown com 4 notificações (prazo PDDE crítico, repasse FUNDEB, etc.), diferentes tipos (success, warning, info), prioridades, estados lida/não lida"
+
+  - task: "Agenda totalmente renovada seguindo design fornecido"
     implemented: true
     working: true
     file: "components/Alertas.jsx"
