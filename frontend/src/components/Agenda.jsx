@@ -110,13 +110,13 @@ const Agenda = () => {
   const dayNames = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"];
 
   const colorPalette = [
-    "#3B82F6", // Azul (selecionado por padrão)
-    "#EF4444", // Vermelho
-    "#22C55E", // Verde
-    "#06B6D4", // Ciano
-    "#8B5CF6", // Roxo
-    "#F59E0B", // Laranja
-    "#0EA5E9"  // Azul claro
+    "#2563EB", // Azul mais vibrante
+    "#DC2626", // Vermelho mais vibrante
+    "#059669", // Verde mais vibrante
+    "#0891B2", // Ciano mais vibrante
+    "#7C3AED", // Roxo mais vibrante
+    "#EA580C", // Laranja mais vibrante
+    "#0284C7"  // Azul claro mais vibrante
   ];
 
   const getPriorityIcon = (priority) => {
