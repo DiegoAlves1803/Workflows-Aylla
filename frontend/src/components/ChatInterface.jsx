@@ -26,7 +26,6 @@ const ChatInterface = () => {
       "Meu Painel": <MeuPainel key="meu-painel" setActiveTab={setActiveTab} />,
       "Agenda": <Agenda key="agenda" />,
       "Alertas": <Alertas key="alertas" />,
-      "Notificações": <Notificacoes key="notificacoes" />,
       "Documentos": <Documentos key="documentos" />
     };
     
