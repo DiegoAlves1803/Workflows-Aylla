@@ -1,5 +1,5 @@
 import React from "react";
-import { MessageSquare, BarChart3, Calendar, AlertTriangle, Bell, FileText, Settings, MoreHorizontal, Sun, Moon, LogOut } from "lucide-react";
+import { MessageSquare, BarChart3, Calendar, AlertTriangle, FileText, Bell, MoreHorizontal, Sun, Moon, LogOut } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 import { useAuth } from "../contexts/AuthContext";
 
@@ -13,7 +13,6 @@ const TopNavigation = ({ activeTab, setActiveTab }) => {
     { name: "Meu Painel", icon: BarChart3 },
     { name: "Agenda", icon: Calendar },
     { name: "Alertas", icon: AlertTriangle },
-    { name: "Notificações", icon: Bell },
     { name: "Documentos", icon: FileText },
   ];
 
