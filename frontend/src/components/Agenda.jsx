@@ -252,7 +252,7 @@ const Agenda = () => {
         description: '',
         date: '29/08/2025',
         time: '10:00',
-        color: '#3B82F6',
+        color: '#2563EB',
         priority: 'medium',
         status: 'pending'
       });
